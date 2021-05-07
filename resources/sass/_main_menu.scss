@@ -1,0 +1,175 @@
+html, body {
+    height: 100%;
+}
+#app {
+    height: 100%;
+}
+.body {
+    display: flex;
+    position: relative;
+}
+header {
+    background-color: #007ACC;
+}
+.menu_acumatica {
+    display: flex;
+    flex-direction: row;
+    height: 37px;
+    padding-left: 10px;
+    padding-right: 10px;
+    button.btn.btn-secondary {
+        background-color: #007ACC;
+        border: 0 solid;
+        color: #d6d6d6;
+        height: 34px;
+        padding: 6px 10px 10px 10px;
+        font-size: 11pt;
+        border-radius: 0;
+        &:hover {
+            text-decoration: none;
+            color: black;
+            background-color: #BDBDBD;
+            cursor: pointer;
+        }
+    }
+    .user {
+        span {
+            font-size: 11pt;
+            color: #d6d6d6;
+        }
+        .dropdown {
+            .user-1 {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .time-user {
+        display: flex;
+        flex-direction: row;
+        padding-top: 3px;
+    }
+    ul.list-group.list-group-horizontal {
+        height: 37px;
+    }
+    li.list-group-item {
+        border-radius: 0;
+        background-color: #007ACC;
+        border: 0;
+        padding: 13px 0 0 0;
+        font-size: 11pt;
+    }
+    .menu1-timeuser {
+        width: 100%;
+    }
+    .user-1 {
+        height: 34px;
+        border-radius: 0;
+        font-size: 11pt;
+        color: #f0f2f5;
+        background-color: #007ACC;
+        border: 0;
+        &:hover {
+            text-decoration: none;
+            color: black;
+            background-color: #f0f2f5;
+            cursor: pointer;
+        }
+    }
+    .user-3 {
+        position: absolute;
+        left: -8px;
+    }
+    .user.dropdown.dropdown-menu.user-3.show {
+        margin-left: 2px;
+    }
+    .dropdown-menu.user-3.show {
+        border-radius: 0;
+        margin-left: -56px;
+        padding: 5px;
+    }
+    a.dropdown-item.user-2 {
+        padding: 5px;
+        font-size: 11pt;
+        -webkit-transition: all .2s ease 0s;
+        transition: all .2s ease 0s;
+    }
+    .dropdown-divider {
+        border-color: black;
+    }
+    input.btn.btn-secondary {
+        &:focus {
+            box-shadow: none;
+            background-color: white;
+            border-color: black;
+        }
+    }
+    .main-menu {
+        text-transform: uppercase;
+        margin-left: 10px;
+        .link-menu-1 {
+            color: #fff;
+            padding: 3px 10px 4px 10px;
+            -webkit-transition: all .2s ease 0s;
+            transition: all .2s ease 0s;
+            &:hover {
+                text-decoration: none;
+                color: #5f666f;
+                background-color: #f0f2f5;
+                cursor: pointer;
+            }
+        }
+        .list-group-item .active {
+            background-color: #eeeeee;
+            color: RGBA(0, 0, 0, 0.87);
+            cursor: default;
+        }
+    }
+}
+.sub-main-menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #eeeeee;
+    min-height: 10px;
+    //border-bottom: 1px solid #bdbdbd;
+    height: 34px;
+    overflow: hidden;
+    .sub-menu-item {
+        padding-top: 5px;
+    }
+    ul.list-group.list-group-horizontal {
+        height: unset;
+        li {
+            .active {
+                border-bottom: 3px solid #0062cc;
+                color: black;
+            }
+        }
+    }
+    .link-menu-2 {
+        padding: 5px 10px;
+        color: #797979;
+        -webkit-transition: all .2s ease 0s;
+        transition: all .2s ease 0s;
+        &:hover {
+            text-decoration: none;
+            color: black;
+            background-color: #BDBDBD;
+            cursor: pointer;
+        }
+    }
+    .menu-3 {
+        li.list-group-item {
+            background-color: #eeeeee;
+            padding-top: 0;
+        }
+    }
+    li.list-group-item {
+        border-radius: 0;
+        background-color: #007ACC;
+        border: 0;
+        padding: 13px 0 0 0;
+        font-size: 11pt;
+    }
+}

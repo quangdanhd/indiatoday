@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'save' => 'Lưu',
+    'add' => 'Thêm mới',
+    'edit' => 'Sửa',
+    'delete' => 'Xóa',
+    'reload' => 'Tải lại',
+    'expand' => 'Thu/Phóng',
+    'word_wrap' => 'Word Wrap',
+    'search' => 'Tìm kiếm',
+    'previous' => '< Trước',
+    'next' => 'Sau >',
+    'all' => '- Tất cả -',
+    'yes' => 'Có',
+    'no' => 'Không',
+    'new' => 'Mới',
+    'approved' => 'Đã duyệt',
+    'cancel' => 'Hủy',
+    'adjust' => 'Điều chỉnh',
+    'release' => 'Hoàn tất',
+    'option_none' => '- Chọn -',
+    'import' => 'Import dữ liệu',
+    'export_excel' => 'Xuất excel',
+    'cancel_import' => 'Hủy import',
+    'sample_file' => 'File mẫu',
+    'import_sample_file_download' => 'Tải file mẫu import',
+];
