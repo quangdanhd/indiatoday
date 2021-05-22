@@ -4,7 +4,7 @@
     @isset($title)
         <title>{{ $title }}</title>
     @else
-        <title>Admin Sale</title>
+        <title>Admin</title>
     @endisset
     @include('layouts.head_tag')
     @yield('plugins')

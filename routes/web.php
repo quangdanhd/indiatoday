@@ -17,16 +17,21 @@ Route::group(['namespace' => 'DataSearch'], function () {
     Route::post('data-table-index', [DataTableIndexSearch::class, 'index']);
 });
 // Home
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Admin
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Product
-Route::resource('products', '\App\Http\Controllers\ProductController', [
+// Route::get('/admin', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home');
+Route::resource('admin', '\App\Http\Controllers\NewsController', [
     'only' => ['index', 'create', 'store', 'edit', 'update']
 ]);
 // User
-Route::resource('users', '\App\Http\Controllers\UserController', [
+//Route::resource('users', '\App\Http\Controllers\UserController', [
+//    'only' => ['index', 'create', 'store', 'edit', 'update']
+//]);
+// News
+Route::resource('admin-news', '\App\Http\Controllers\NewsController', [
     'only' => ['index', 'create', 'store', 'edit', 'update']
 ]);
+// generate_sample_data
+Route::get('/generate-sample-data', [App\Http\Controllers\NewsController::class, 'generate']);
+// News View
+Route::get('/{url}', [App\Http\Controllers\HomeController::class, 'show']);

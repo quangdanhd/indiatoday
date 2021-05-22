@@ -25,4 +25,21 @@ return [
         'multiple_image' => 'multiple_image',
     ],
     'explode_filter' => '_:',
+    'news_category' => [
+        'movies' => 1,
+        'sports' => 2,
+        'technology' => 3,
+        'lifestyle' => 4,
+        'trending' => 5,
+        'magazine' => 6,
+        'india' => 7,
+        'television' => 8,
+        'business' => 9,
+        'science' => 10,
+        'education' => 11,
+        'cities' => 12,
+        'auto' => 13,
+        'world' => 14,
+        'others' => 15,
+    ]
 ];

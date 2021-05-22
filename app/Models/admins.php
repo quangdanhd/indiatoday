@@ -10,12 +10,12 @@ class admins extends Model implements Authenticatable
     use \Illuminate\Auth\Authenticatable;
     protected $table = 'admins';
     protected $primaryKey = 'id';
-    protected $fillable = ['username', 'password', 'fullname', 'facebook', 'is_admin', 'address', 'phone', 'active'];
+    protected $fillable = ['username', 'password', 'role_id', 'is_active'];
 
     public $timestamps = TRUE;
 
     const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    const UPDATED_AT = null;
 
     public static function boot()
     {
@@ -40,10 +40,5 @@ class admins extends Model implements Authenticatable
             ['password', '=', $password],
             ['is_active', '=', '1'],
         ])->first();
-    }
-
-    public function dataFormIndex()
-    {
-        return $this->whereNotNull('admins.id');
     }
 }

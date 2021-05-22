@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('./menu');
+
 window.Vue = require('vue').default;
 import store from './store/index';
 import './ReportHelpers';

@@ -5,54 +5,12 @@ return [
             'label' => 'Data Config',
             'items' => [
                 [
-                    'label' => 'Sản phẩm',
-                    'items' => [
-                        [
-                            'label' => 'Sản phẩm',
-                            'items' => [
-                                [
-                                    'label' => 'Sản phẩm',
-                                    'link' => '/products'
-                                ],
-                                [
-                                    'label' => 'Đơn hàng',
-                                    'link' => '/orders'
-                                ],
-                                [
-                                    'label' => 'Cộng tác viên',
-                                    'link' => '/collaborators'
-                                ],
-                                [
-                                    'label' => 'Tài khoản',
-                                    'link' => '/users'
-                                ],
-                            ]
-                        ],
-                        [
-                            'label' => 'Đơn hàng',
-                            'link' => '/orders'
-                        ],
-                        [
-                            'label' => 'Cộng tác viên',
-                            'link' => '/collaborators'
-                        ],
-                        [
-                            'label' => 'Tài khoản',
-                            'link' => '/users'
-                        ],
-                    ]
+                    'label' => 'Tin tức',
+                    'link' => '/admin-news'
                 ],
                 [
-                    'label' => 'Đơn hàng',
-                    'link' => '/orders'
-                ],
-                [
-                    'label' => 'Cộng tác viên',
-                    'link' => '/collaborators'
-                ],
-                [
-                    'label' => 'Tài khoản',
-                    'link' => '/users'
+                    'label' => 'Tạo dữ liệu mẫu',
+                    'link' => '/generate-sample-data'
                 ],
             ]
         ],

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\user;
+use App\Models\admins;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -26,9 +26,9 @@ class LoginController extends BaseController
         if (!$username || !$password) {
             return 'Tài khoản & mật khẩu không được để trống!';
         }
-        $user = (new user)->getAuth($username, $password);
-        if ($user) {
-            Auth::login($user);
+        $admin = (new admins)->getAuth($username, $password);
+        if ($admin) {
+            Auth::login($admin);
             return 'success';
         } else {
             return 'Sai tài khoản hoặc mật khẩu!';

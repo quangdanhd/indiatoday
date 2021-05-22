@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\news;
 use Illuminate\Support\Facades\DB;
 
 function get_db_column()
@@ -20,7 +21,8 @@ function get_db_column_type($table)
     $field_name = DB::getSchemaBuilder()->getColumnListing($table);
     $field_type = [];
     foreach ($field_name as $key => $value) {
-        $f_type = DB::getSchemaBuilder()->getColumnType($table, $value);
+        // $f_type = DB::getSchemaBuilder()->getColumnType($table, $value);
+        $f_type = 'text';
         $field_type[$value] = $f_type;
         echo "'" . $value . "'" . ' => ' . "'" . $f_type . "',<br>";
     }
@@ -28,14 +30,57 @@ function get_db_column_type($table)
     return;
 }
 
-function get_filename_extension($file)
+function generate_sample_data()
 {
-    return explode('/', explode(':', substr($file, 0, strpos($file, ';')))[1])[1];
+    $count = DB::table('news')->select('id')->count();
+    if (!$count) {
+        return 'Tạo 1 tin tức mới để làm dữ liệu mẫu, và thử lại tính năng này!';
+    }
+    if ($count > 1) {
+        return 'Không sử dụng được tính năng tạo dữ liệu mẫu. Dữ liệu tin tức trong database có nhiều hơn 1 bản ghi!';
+    }
+    $news = DB::table('news')->select('title', 'category_id', 'content', 'describe', 'image', 'publish', 'new_of_category')->orderBy('id', 'desc')->first();
+    if ($news) {
+        $data = (array)$news;
+        $category = DB::table('news_category')->orderBy('type', 'asc')->pluck('type')->toArray();
+        foreach ($category as $key => $value) {
+            $new_data = $data;
+            $new_data['category_id'] = $value;
+            for ($i = 0; $i <= 4; $i++) {
+                news::create($new_data);
+            }
+        }
+    }
+    return 'Tạo dữ liệu mẫu thành công!';
+}
+
+function get_name_image_upload($image)
+{
+    return time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
 }
 
 function config_field($key)
 {
     return config('constants.field.' . $key);
+}
+
+function convert_name($str)
+{
+    $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+    $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+    $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+    $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+    $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+    $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+    $str = preg_replace("/(đ)/", 'd', $str);
+    $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+    $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+    $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+    $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+    $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+    $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+    $str = preg_replace("/(Đ)/", 'D', $str);
+    return $str;
 }
 
 function explode_filter()
@@ -45,206 +90,39 @@ function explode_filter()
 
 function config_search_popup($key)
 {
-    $config = [
-        'product_id' => [
-            'search_table' => 'product',
+    if ($key == 'news_id') {
+        return [
+            'search_table' => 'news',
             'primaryKey' => 'id',
             'search_filter' => [
-                'product' => config_field('text'),
+                'title' => config_field('text'),
                 'category_id' => config_field('select'),
-                'desc' => config_field('text'),
-                'size' => config_field('text'),
-                'cost' . explode_filter() . 'from' => config_field('text'),
-                'cost' . explode_filter() . 'to' => config_field('text'),
-                'price' . explode_filter() . 'promotional_from' => config_field('text'),
-                'price' . explode_filter() . 'promotional_to' => config_field('text'),
-                'price_default' . explode_filter() . 'from' => config_field('text'),
-                'price_default' . explode_filter() . 'to' => config_field('text'),
-                'is_order' => config_field('select'),
-                'active' => config_field('select'),
+                'publish' => config_field('select'),
+                'created_at' . explode_filter() . 'from' => config_field('date'),
+                'created_at' . explode_filter() . 'to' => config_field('date'),
             ],
             'search_autofill' => [
-                'product_id' => 'id',
+                'news_id' => 'id',
             ],
             'join' => [],
             'field_join' => [],
             'query' => [
-                'cost' . explode_filter() . 'from' => '>=',
-                'cost' . explode_filter() . 'to' => '<=',
-                'price' . explode_filter() . 'promotional_from' => '>=',
-                'price' . explode_filter() . 'promotional_to' => '<=',
-                'price_default' . explode_filter() . 'from' => '>=',
-                'price_default' . explode_filter() . 'to' => '<=',
-                'is_order' => '=',
-                'active' => '=',
+                'created_at' . explode_filter() . 'from' => '>=',
+                'created_at' . explode_filter() . 'to' => '<=',
+                'publish' => '=',
             ],
             'select' => [
-                'category_id' => DB::table('category')->pluck('category', 'id'),
-                'is_order' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-                'active' => [
+                'category_id' => DB::table('news_category')->pluck('name', 'type'),
+                'publish' => [
                     '0' => 'no',
                     '1' => 'yes',
                 ],
             ],
             'default_search' => [
-                'active' => '1',
+                'publish' => '1',
             ],
-            'hidden_column' => [
-                'created_at',
-                'updated_at',
-            ]
-        ],
-        'order_id' => [
-            'search_table' => 'order',
-            'primaryKey' => 'id',
-            'search_filter' => [
-                'collaborator' . explode_filter() . 'fullname' => config_field('text'),
-                'customer' => config_field('text'),
-                'phone' => config_field('text'),
-                'address' => config_field('text'),
-                'facebook' => config_field('text'),
-                'desc' => config_field('text'),
-                'paid' => config_field('select'),
-                'status' => config_field('select'),
-                'is_order' => config_field('select'),
-                'active' => config_field('select'),
-            ],
-            'search_autofill' => [
-                'order_id' => 'id',
-            ],
-            'join' => [
-                'collaborator' . explode_filter() . 'fullname' => [
-                    'table' => 'collaborator',
-                    'primaryKey' => 'id',
-                    'join_field' => 'collaborator_id',
-                ],
-            ],
-            'field_join' => [
-                'collaborator_id' => [
-                    'table' => 'collaborator',
-                    'primaryKey' => 'id',
-                    'field' => 'fullname'
-                ],
-            ],
-            'query' => [
-                'paid' => '=',
-                'status' => '=',
-                'is_order' => '=',
-                'active' => '=',
-            ],
-            'select' => [
-                'paid' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-                'status' => DB::table('order_status')->pluck('status', 'id'),
-                'is_order' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-                'active' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-            ],
-            'default_search' => [
-                'active' => '1',
-            ],
-            'hidden_column' => [
-                'created_at',
-                'updated_at',
-            ]
-        ],
-        'collaborator_id' => [
-            'search_table' => 'collaborator',
-            'primaryKey' => 'id',
-            'search_filter' => [
-                'username' => config_field('text'),
-                'fullname' => config_field('text'),
-                'facebook' => config_field('text'),
-                'address' => config_field('text'),
-                'phone' => config_field('text'),
-                'fullname' . explode_filter() . 'leader_id' => config_field('text'),
-                'active' => config_field('select'),
-            ],
-            'search_autofill' => [
-                'collaborator_id' => 'id',
-            ],
-            'join' => [
-                'fullname' . explode_filter() . 'leader_id' => [
-                    'table' => 'collaborator',
-                    'primaryKey' => 'id',
-                    'join_field' => 'leader_id',
-                ],
-            ],
-            'field_join' => [
-                'leader_id' => [
-                    'table' => 'collaborator',
-                    'primaryKey' => 'id',
-                    'field' => 'fullname'
-                ],
-            ],
-            'query' => [
-                'active' => '=',
-            ],
-            'select' => [
-                'active' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-            ],
-            'default_search' => [
-                'active' => '1',
-            ],
-            'hidden_column' => [
-                'password',
-                'created_at',
-                'updated_at',
-            ]
-        ],
-        'user_id' => [
-            'search_table' => 'user',
-            'primaryKey' => 'id',
-            'search_filter' => [
-                'username' => config_field('text'),
-                'fullname' => config_field('text'),
-                'facebook' => config_field('text'),
-                'address' => config_field('text'),
-                'phone' => config_field('text'),
-                'is_admin' => config_field('select'),
-                'active' => config_field('select'),
-            ],
-            'search_autofill' => [
-                'user_id' => 'id',
-            ],
-            'join' => [],
-            'field_join' => [],
-            'query' => [
-                'is_admin' => '=',
-                'active' => '=',
-            ],
-            'select' => [
-                'is_admin' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-                'active' => [
-                    '0' => 'no',
-                    '1' => 'yes',
-                ],
-            ],
-            'default_search' => [
-                'active' => '1',
-            ],
-            'hidden_column' => [
-                'password',
-                'created_at',
-                'updated_at',
-            ]
-        ],
-    ];
-    return isset($config[$key]) ? $config[$key] : [];
+            'hidden_column' => []
+        ];
+    }
+    return [];
 }
