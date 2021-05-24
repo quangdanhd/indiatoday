@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\news_view;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
-class HomeController extends BaseController
+class HomeController extends ControllerUsers
 {
+    public function data_config()
+    {
+        // Category
+        $category_db = DB::table('news_category')->select('type', 'name')->orderBy('type', 'asc')->pluck('name', 'type')->toArray();
+        $obj['category'] = $category_db;
+        $obj['category_show'] = 9;
+        return $obj;
+    }
+
     public function index()
     {
+        $obj = $this->data_config();
         $obj['title'] = 'IndiaToday';
         // Recent
         $take = 3;
@@ -27,7 +36,8 @@ class HomeController extends BaseController
         $obj['newest'] = $newest;
         // Top
         $take = 10;
-        $top_db = DB::table('news')->select('id', 'url', 'title')->where('publish', 1)->whereNotIn('id', $newest_id)->orderBy('views', 'desc')->take($take)->get();
+        $top_db = get_top_news();
+        $top_db = $top_db->select('id', 'url', 'title')->whereNotIn('id', $newest_id)->take($take)->get();
         $obj['top'] = $top_db;
         // OTHER
         $category_name = [
@@ -90,6 +100,7 @@ class HomeController extends BaseController
 
     public function show($url)
     {
+        $obj = $this->data_config();
         $news = DB::table('news')->select('id', 'title', 'category_id', 'content', 'created_at', 'updated_at')->where('url', $url)->where('publish', 1)->first();
         if ($news) {
             $obj['title'] = $news->title;
@@ -109,7 +120,8 @@ class HomeController extends BaseController
             }
             // Top
             $take = 4;
-            $top_db = DB::table('news')->select('id', 'title', 'url', 'image')->where('publish', 1)->orderBy('views', 'desc')->take($take)->get();
+            $top_db = get_top_news();
+            $top_db = $top_db->select('id', 'title', 'url', 'image')->take($take)->get();
             $top = [];
             foreach ($top_db as $key => $value) {
                 $arr = (array)$value;

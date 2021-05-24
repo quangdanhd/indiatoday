@@ -5,7 +5,7 @@
     </div>
     <div id="block-block-48" class="block block-block even">
         <div class="close-foru"><i class="arrow up"></i></div>
-        <div class="fixed__foru__nav">
+        <div class="fixed__foru__nav hide">
             <div class="foryou__nav">
                 <a href="#">
                     <span class="icon">

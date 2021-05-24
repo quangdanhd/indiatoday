@@ -2866,6 +2866,7 @@ footer .footer-copyright {
 
 .top-n-most-popular-stories .widget-wrapper .data-holder {
   height: calc(100% - 22px);
+  max-height: 635px;
 }
 
 .top-n-most-popular-stories .widget-wrapper .data-holder .mCSB_scrollTools {
