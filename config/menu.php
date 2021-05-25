@@ -5,6 +5,10 @@ return [
             'label' => 'Data Config',
             'items' => [
                 [
+                    'label' => 'Home',
+                    'link' => '/admin'
+                ],
+                [
                     'label' => 'Tin tức',
                     'link' => '/admin-news'
                 ],

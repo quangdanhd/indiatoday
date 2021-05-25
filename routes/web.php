@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DataSearch\DataFormIndexSearch;
 use App\Http\Controllers\DataSearch\DataTableIndexSearch;
@@ -16,23 +18,22 @@ Route::group(['namespace' => 'DataSearch'], function () {
     Route::post('form-index', [DataFormIndexSearch::class, 'index']);
     Route::post('data-table-index', [DataTableIndexSearch::class, 'index']);
 });
+// Admin
+Route::group(['namespace' => 'Admin'], function () {
+    Route::get('/admin', [HomeController::class, 'index'])->name('home');
+    // News
+    Route::resource('admin-news', '\App\Http\Controllers\Admin\NewsController', [
+        'only' => ['index', 'create', 'store', 'edit', 'update']
+    ]);
+    // User
+    //Route::resource('users', '\App\Http\Controllers\UserController', [
+    //    'only' => ['index', 'create', 'store', 'edit', 'update']
+    //]);
+    // generate_sample_data
+    Route::get('/generate-sample-data', [NewsController::class, 'generate']);
+});
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-// Admin
-// Route::get('/admin', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home');
-Route::resource('admin', '\App\Http\Controllers\NewsController', [
-    'only' => ['index', 'create', 'store', 'edit', 'update']
-]);
-// User
-//Route::resource('users', '\App\Http\Controllers\UserController', [
-//    'only' => ['index', 'create', 'store', 'edit', 'update']
-//]);
-// News
-Route::resource('admin-news', '\App\Http\Controllers\NewsController', [
-    'only' => ['index', 'create', 'store', 'edit', 'update']
-]);
-// generate_sample_data
-Route::get('/generate-sample-data', [App\Http\Controllers\NewsController::class, 'generate']);
 // Category
 Route::get('/category/{url}', [App\Http\Controllers\HomeController::class, 'category']);
 // News View

@@ -26,6 +26,8 @@ Vue.component('data-form', require('./components/report_form/DataForm.vue').defa
 Vue.component('data-form-index', require('./components/report_form/DataFormIndex.vue').default);
 // pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
+// chart home
+Vue.component('chart-home', require('./components/charts/ChartHome.vue').default);
 
 window.onload = function () {
     if (document.getElementById('app')) {
