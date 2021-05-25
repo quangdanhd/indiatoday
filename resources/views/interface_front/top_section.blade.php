@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 home-trending-video">
+                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 home-trending-video hide">
                     <div class="widget-help-text">Template widgets(<strong>Trending Videos &amp; Top Takes</strong>)
                     </div>
                     <div class="tab-buttons">

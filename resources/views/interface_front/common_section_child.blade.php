@@ -28,7 +28,7 @@
                                 @endif
                             @endforeach
                             <div class="morediv">
-                                <a href="">
+                                <a href="/category/{{strtolower($value[0]['name'])}}">
                                     <span>more from {{strtolower($value[0]['name'])}}</span>
                                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </a>

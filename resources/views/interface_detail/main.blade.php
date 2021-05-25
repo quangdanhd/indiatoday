@@ -12,7 +12,7 @@
     </section>
     <aside class="sidebars col-md-4">
         <section class="region region-sidebar-second column sidebar">
-            @include('interface_detail.sidebar', ['node' => $obj['detail']])
+            @include('interface_detail.sidebar')
         </section>
     </aside>
 </div>

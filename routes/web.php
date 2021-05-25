@@ -33,5 +33,7 @@ Route::resource('admin-news', '\App\Http\Controllers\NewsController', [
 ]);
 // generate_sample_data
 Route::get('/generate-sample-data', [App\Http\Controllers\NewsController::class, 'generate']);
+// Category
+Route::get('/category/{url}', [App\Http\Controllers\HomeController::class, 'category']);
 // News View
 Route::get('/{url}', [App\Http\Controllers\HomeController::class, 'show']);

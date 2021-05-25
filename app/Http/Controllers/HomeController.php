@@ -105,37 +105,64 @@ class HomeController extends ControllerUsers
         if ($news) {
             $obj['title'] = $news->title;
             $obj['detail'] = $news;
-            // views
-            session_start();
-            if (!isset($_SESSION['uniqueID'])) {
-                $_SESSION['uniqueID'] = uniqid('', true);
-            }
-            $uniqueID = $_SESSION['uniqueID'];
-            $view = DB::table('news_view')->where('news_id', $news->id)->where('unknown_token', $uniqueID)->first();
-            if (!$view) {
-                news_view::create([
-                    'news_id' => $news->id,
-                    'unknown_token' => $uniqueID,
-                ]);
-            }
-            // Top
-            $take = 4;
-            $top_db = get_top_news();
-            $top_db = $top_db->select('id', 'title', 'url', 'image')->take($take)->get();
-            $top = [];
-            foreach ($top_db as $key => $value) {
-                $arr = (array)$value;
-                $arr['image'] = str_replace('news_370x208', 'news_237x133', $arr['image']);
-                $top[] = $arr;
-            }
-            $obj['top'] = $top;
-            // Recommend
-            $take = 7;
-            $recommend_db = DB::table('news')->select('id', 'title', 'url', 'image')->where('publish', 1)->where('category_id', $news->category_id)->orderBy('id', 'desc')->take($take)->get();
-            $obj['recommend'] = $recommend_db;
+            $this->view_node($news->id);
+            $this->aside_data($obj, $news->category_id);
             return view('detail')->with('obj', $obj);
         }
         $obj['title'] = '404 | Not Found';
         return view('errors.404_custom')->with('obj', $obj);
+    }
+
+    public function category($url)
+    {
+        $obj = $this->data_config();
+        $category = DB::table('news_category')->select('type')->where('name', $url)->first();
+        if ($category) {
+            $obj['title'] = ucfirst($url);
+            // List
+            $take = 20;
+            $list = DB::table('news')->select('id', 'title', 'describe', 'image', 'url')->where('category_id', $category->type)->where('publish', 1)->paginate($take);
+            $obj['list'] = $list;
+            $this->aside_data($obj, $category->type);
+            return view('category')->with('obj', $obj);
+        }
+        $obj['title'] = '404 | Not Found';
+        return view('errors.404_custom')->with('obj', $obj);
+    }
+
+    public function aside_data(&$obj, $category_id)
+    {
+        // Top
+        $take = 4;
+        $top_db = get_top_news();
+        $top_db = $top_db->select('id', 'title', 'url', 'image')->take($take)->get();
+        $top = [];
+        foreach ($top_db as $key => $value) {
+            $arr = (array)$value;
+            $arr['image'] = str_replace('news_370x208', 'news_237x133', $arr['image']);
+            $top[] = $arr;
+        }
+        $obj['top'] = $top;
+        // Recommend
+        $take = 5;
+        $recommend_db = DB::table('news')->select('id', 'title', 'url', 'image')->where('publish', 1)->where('category_id', $category_id)->orderBy('id', 'desc')->take($take)->get();
+        $obj['recommend'] = $recommend_db;
+    }
+
+    public function view_node($news_id)
+    {
+        // views
+        session_start();
+        if (!isset($_SESSION['uniqueID'])) {
+            $_SESSION['uniqueID'] = uniqid('', true) . '-' . time();
+        }
+        $uniqueID = $_SESSION['uniqueID'];
+        $view = DB::table('news_view')->where('news_id', $news_id)->where('unknown_token', $uniqueID)->first();
+        if (!$view) {
+            news_view::create([
+                'news_id' => $news_id,
+                'unknown_token' => $uniqueID,
+            ]);
+        }
     }
 }
