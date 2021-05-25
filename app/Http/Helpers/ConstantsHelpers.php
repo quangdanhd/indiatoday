@@ -34,6 +34,14 @@ function get_top_news() {
     return DB::table('news')->where('publish', 1)->orderBy('views', 'desc');
 }
 
+function session_uniqueID() {
+    session_start();
+    if (!isset($_SESSION['uniqueID'])) {
+        $_SESSION['uniqueID'] = uniqid('', true) . '-' . time();
+    }
+    return $_SESSION['uniqueID'];
+}
+
 function generate_sample_data()
 {
     $count = DB::table('news')->select('id')->count();

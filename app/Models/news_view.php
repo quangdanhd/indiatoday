@@ -11,7 +11,7 @@ class news_view extends Model implements Authenticatable
     use \Illuminate\Auth\Authenticatable;
     protected $table = 'news_view';
     protected $primaryKey = 'id';
-    protected $fillable = ['news_id', 'user_id', 'unknown_token', 'is_user'];
+    protected $fillable = ['news_id', 'user_id', 'unknown_token'];
 
     public $timestamps = TRUE;
 

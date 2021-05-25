@@ -152,12 +152,8 @@ class HomeController extends ControllerUsers
     public function view_node($news_id)
     {
         // views
-        session_start();
-        if (!isset($_SESSION['uniqueID'])) {
-            $_SESSION['uniqueID'] = uniqid('', true) . '-' . time();
-        }
-        $uniqueID = $_SESSION['uniqueID'];
-        $view = DB::table('news_view')->where('news_id', $news_id)->where('unknown_token', $uniqueID)->first();
+        $uniqueID = session_uniqueID();
+        $view = DB::table('news_view')->select('id')->where('news_id', $news_id)->where('unknown_token', $uniqueID)->first();
         if (!$view) {
             news_view::create([
                 'news_id' => $news_id,
