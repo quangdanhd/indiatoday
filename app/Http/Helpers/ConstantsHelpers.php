@@ -123,9 +123,10 @@ function config_search_popup($key)
             'join' => [],
             'field_join' => [],
             'query' => [
-                'created_at' . explode_filter() . 'from' => '>=',
-                'created_at' . explode_filter() . 'to' => '<=',
+                'category_id' => '=',
                 'publish' => '=',
+                'created_at' . explode_filter() . 'to' => '<=',
+                'created_at' . explode_filter() . 'from' => '>=',
             ],
             'select' => [
                 'category_id' => DB::table('news_category')->pluck('name', 'type'),
