@@ -30,12 +30,16 @@ function get_db_column_type($table)
     return;
 }
 
-function get_top_news() {
+function get_top_news()
+{
     return DB::table('news')->where('publish', 1)->orderBy('views', 'desc');
 }
 
-function session_uniqueID() {
-    session_start();
+function session_uniqueID()
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     if (!isset($_SESSION['uniqueID'])) {
         $_SESSION['uniqueID'] = uniqid('', true) . '-' . time();
     }
