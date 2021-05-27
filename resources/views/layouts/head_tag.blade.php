@@ -10,6 +10,7 @@
     window.report_config = JSON.parse('{!! json_encode(config('constants.field')) !!}');
     window.explode_filter = JSON.parse('{!! json_encode(config('constants.explode_filter')) !!}');
     window.menu_config = JSON.parse('{!! json_encode(config('menu')[1]) !!}');
+    var CSRF_TOKEN = '{{csrf_token()}}';
 </script>
 <script src="{{ mix('/js/app.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.5.1/tinymce.min.js"></script>
