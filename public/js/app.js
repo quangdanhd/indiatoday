@@ -6957,9 +6957,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (typeof state.objData['record'] === 'undefined') {
         // create new
         axios.post(state.objData['url'], {
-          headers: {
-            'X-CSRF-TOKEN': CSRF_TOKEN
-          },
           formData: state.dataModel,
           joinNewData: state.addData,
           joinUpdateData: state.joinDataEdit,
@@ -6986,9 +6983,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } else {
         // update
         axios.patch(state.objData['url'], {
-          headers: {
-            'X-CSRF-TOKEN': CSRF_TOKEN
-          },
           formData: state.dataModel,
           joinNewData: state.addData,
           joinUpdateData: state.joinDataEdit,
