@@ -412,7 +412,8 @@ export default {
                 })
             } else {
                 // update
-                axios.patch(state.objData['url'], {
+                axios.post(state.objData['url'], {
+                    _method: 'patch',
                     formData: state.dataModel,
                     joinNewData: state.addData,
                     joinUpdateData: state.joinDataEdit,
