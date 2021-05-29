@@ -15,7 +15,10 @@ class HomeController extends Controller
         $title = 'Lượt truy cập 30 ngày gần đây';
         $type = 'AreaChart';
         $options = [
-            'vAxis' => ['title' => 'Lượt'],
+            'vAxis' => [
+                'title' => 'Lượt',
+                'minValue' => 0,
+            ],
             'hAxis' => ['title' => 'Ngày'],
         ];
         $date_now = strtotime(date('Y-m-d'));
