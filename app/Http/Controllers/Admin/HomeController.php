@@ -53,7 +53,7 @@ class HomeController extends Controller
         $obj = $this->data_config();
         $obj['chart_1'] = $this->chart_data($obj['chart_1']);
         if (request()->ajax()) {
-            return $data;
+            return $obj;
         }
         return View::make('admin/home')->with('obj', $obj);
     }

@@ -46,6 +46,15 @@ function session_uniqueID()
     return $_SESSION['uniqueID'];
 }
 
+function menu_category()
+{
+    // Category
+    $category_db = DB::table('news_category')->select('type', 'name')->orderBy('type', 'asc')->pluck('name', 'type')->toArray();
+    $obj['category'] = $category_db;
+    $obj['category_show'] = 9;
+    return $obj;
+}
+
 function generate_sample_data()
 {
     $count = DB::table('news')->select('id')->count();

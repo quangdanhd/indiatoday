@@ -7,15 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends ControllerUsers
 {
-    public function data_config()
-    {
-        // Category
-        $category_db = DB::table('news_category')->select('type', 'name')->orderBy('type', 'asc')->pluck('name', 'type')->toArray();
-        $obj['category'] = $category_db;
-        $obj['category_show'] = 9;
-        return $obj;
-    }
-
     public function index()
     {
         $obj = $this->data_config();
@@ -100,7 +91,7 @@ class HomeController extends ControllerUsers
 
     public function show($url)
     {
-        $obj = $this->data_config();
+        $obj = menu_category();
         $news = DB::table('news')->select('id', 'title', 'category_id', 'content', 'created_at', 'updated_at')->where('url', $url)->where('publish', 1)->first();
         if ($news) {
             $obj['title'] = $news->title;
@@ -115,7 +106,7 @@ class HomeController extends ControllerUsers
 
     public function category($url)
     {
-        $obj = $this->data_config();
+        $obj = menu_category();
         $category = DB::table('news_category')->select('type')->where('name', $url)->first();
         if ($category) {
             $obj['title'] = ucfirst($url);

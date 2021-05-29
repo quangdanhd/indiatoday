@@ -14,7 +14,7 @@ class LoginController extends BaseController
     public function index()
     {
         if (Auth::check()) {
-            return Redirect::to('')->send();
+            return Redirect::to('admin')->send();
         }
         return View::make('auth/login');
     }
