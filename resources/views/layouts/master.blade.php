@@ -13,7 +13,7 @@
 <div id="app">
     <header>
         <div class="menu_acumatica">
-            <div class="mr-3">
+            <div>
                 <child-menu-toggle></child-menu-toggle>
             </div>
             <div class="menu1-timeuser">
@@ -21,10 +21,13 @@
                 <div class="time-user float-right">
                     <div class="user">
                         <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle user-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                            <a class="btn btn-secondary dropdown-toggle user-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-user-circle"></i>
+                            </a>
                             <div class="dropdown-menu user-3" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item user-2" href="/logout"><i class="fas fa-sign-out-alt"></i>
-                                    SignOut</a>
+                                <a class="dropdown-item user-2" href="{{url('logout')}}">
+                                    <i class="fas fa-sign-out-alt"></i> SignOut
+                                </a>
                             </div>
                         </div>
                     </div>
