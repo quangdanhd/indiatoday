@@ -9,7 +9,7 @@ class HomeController extends ControllerUsers
 {
     public function index()
     {
-        $obj = $this->data_config();
+        $obj = menu_category();
         $obj['title'] = 'IndiaToday';
         // Recent
         $take = 3;
