@@ -15,6 +15,7 @@ class CreateNewsTable extends Migration
             $table->text('content')->nullable();
             $table->string('describe', 500)->nullable();
             $table->string('url', 300)->nullable();
+            $table->string('from_url', 500)->nullable();
             $table->string('image', 250)->nullable();
             $table->integer('author_id')->nullable();
             $table->boolean('publish')->default(0);

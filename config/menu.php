@@ -2,29 +2,37 @@
 return [
     1 => [
         [
-            'label' => 'Data Config',
+            'label' => 'Main',
             'items' => [
                 [
                     'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => 'Admin Home',
                     'link' => '/admin'
                 ],
                 [
-                    'label' => 'Tin tức',
+                    'label' => 'News',
                     'link' => '/admin-news'
                 ],
+            ]
+        ],
+        [
+            'label' => 'Tools',
+            'items' => [
                 [
-                    'label' => 'Tạo dữ liệu mẫu',
+                    'label' => 'Get news',
+                    'link' => '/get-news-from-url'
+                ],
+                [
+                    'label' => 'Create data test',
                     'link' => '/generate-sample-data'
                 ],
             ]
         ],
         [
-            'label' => 'Báo Cáo',
-            'items' => [
-            ]
-        ],
-        [
-            'label' => 'Cài đặt',
+            'label' => 'Mobile',
             'items' => [
 
             ]

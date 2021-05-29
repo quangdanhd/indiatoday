@@ -17,4 +17,5 @@ return [
     'url' => 'url',
     'views' => 'Lượt xem',
     'describe' => 'Mô tả',
+    'from_url' => 'From Url',
 ];

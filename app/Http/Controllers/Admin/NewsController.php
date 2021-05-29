@@ -30,6 +30,7 @@ class NewsController extends Controller
             'content',
             'image',
             'url',
+            'author_id',
             'new_of_category',
         ];
         // default value

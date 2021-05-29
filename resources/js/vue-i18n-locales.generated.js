@@ -172,6 +172,7 @@ export default {
             "url": "Url",
             'views': 'Lượt xem',
             'describe': 'Mô tả',
+            'from_url': 'From Url',
         },
         "field_view": {},
         "message": {

@@ -1,7 +1,7 @@
 <h1 itemprop="headline">{{$node->title}}</h1>
 <div class="story-left-section story-update">
     <div class="story-kicker">
-        <h2>{{isset($node->describe) ? $node->describe : ''}}</h2>
+        <h2>{{$node->describe}}</h2>
     </div>
     <div class="story-header-wrapper">
         <div class="story-header-ad">

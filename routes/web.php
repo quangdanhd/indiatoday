@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GetNewsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Auth\LoginController;
@@ -31,9 +32,15 @@ Route::group(['namespace' => 'Admin'], function () {
     //]);
     // generate_sample_data
     Route::get('/generate-sample-data', [NewsController::class, 'generate']);
+    // Get news
+    Route::resource('get-news-from-url', '\App\Http\Controllers\Admin\GetNewsController', [
+        'only' => ['index', 'store']
+    ]);
 });
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
+
 // Category
 Route::get('/category/{url}', [App\Http\Controllers\HomeController::class, 'category']);
 // News View
