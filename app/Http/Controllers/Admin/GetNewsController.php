@@ -6,14 +6,12 @@ use App\Http\Controllers\ControllerUsers;
 use App\Models\news;
 use DOMXPath;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Route;
 
 class GetNewsController extends ControllerUsers
 {
     public function access_origin()
     {
-        header('Access-Control-Allow-Origin: https://www.indiatoday.in/');
+        header('Access-Control-Allow-Origin: https://www.indiatoday.in');
     }
 
     public function create_news()
