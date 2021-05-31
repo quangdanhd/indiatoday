@@ -28,8 +28,6 @@ Vue.component('data-form-index', require('./components/report_form/DataFormIndex
 Vue.component('pagination', require('laravel-vue-pagination'));
 // chart home
 Vue.component('chart-home', require('./components/charts/ChartHome.vue').default);
-// others
-Vue.component('get-news', require('./components/others/GetNews.vue').default);
 
 window.onload = function () {
     if (document.getElementById('app')) {

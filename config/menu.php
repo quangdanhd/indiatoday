@@ -22,10 +22,6 @@ return [
             'label' => 'Tools',
             'items' => [
                 [
-                    'label' => 'Get news',
-                    'link' => '/get-news-from-url'
-                ],
-                [
                     'label' => 'Create data test',
                     'link' => '/generate-sample-data'
                 ],

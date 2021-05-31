@@ -33,9 +33,8 @@ Route::group(['namespace' => 'Admin'], function () {
     // generate_sample_data
     Route::get('/generate-sample-data', [NewsController::class, 'generate']);
     // Get news
-    Route::resource('get-news-from-url', '\App\Http\Controllers\Admin\GetNewsController', [
-        'only' => ['index', 'store']
-    ]);
+    Route::post('get-news-from-url', [GetNewsController::class, 'create_news']);
+    Route::get('get-news-category', [GetNewsController::class, 'category']);
 });
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
