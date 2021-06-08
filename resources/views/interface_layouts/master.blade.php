@@ -72,6 +72,9 @@
         localStorage.setItem('dark_mode', theme === 'dark' ? '1' : '0');
         html.attr('data-theme', theme);
     });
+    if (window.innerWidth >= 768) {
+        jQuery('.top_stories_ordering .data-holder').mCustomScrollbar();
+    }
 </script>
 @yield('scripts')
 </body>

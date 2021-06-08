@@ -2434,7 +2434,6 @@ footer .footer-copyright {
 }
 .top-n-most-popular-stories .widget-wrapper .data-holder {
     height: calc(100% - 22px);
-    max-height: 635px;
 }
 .top-n-most-popular-stories .widget-wrapper .data-holder .mCSB_scrollTools {
     width: 3px
@@ -2665,6 +2664,9 @@ footer .footer-top ul li a:hover {
     }
     .social-nav dt:hover .fa {
         color: #ffc106
+    }
+    .top-n-most-popular-stories .widget-wrapper .data-holder {
+        max-height: 635px;
     }
 }
 #widget-ajex-loader {
@@ -4771,7 +4773,7 @@ span.smilies-title img {
 }
 @media (max-width: 767px) {
     .goToTop {
-        bottom: 60px !important;
+        bottom: 10px !important;
         right: 15px !important
     }
 }

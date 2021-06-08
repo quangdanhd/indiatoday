@@ -21,7 +21,7 @@
                                 <a href="" class="menu__link active">News</a>
                             </li>
                             <li class="menu__item is-leaf last leaf">
-                                <a href="" title="TV" class="menu__link">LIVE TV</a>
+                                <a href="" title="TV" class="menu__link">LIVE</a>
                             </li>
                         </ul>
                         <div class="container headeritg-logo">

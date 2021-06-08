@@ -26,21 +26,9 @@
                                 <div class="droppable ">
                                     <div class="widget-wrapper top_stories_ordering">
                                         <span class="widget-title">Top Stories</span>
-                                        <div class="data-holder mCustomScrollbar _mCS_1" id="itg-block-2">
-                                            <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
-                                                <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
-                                                    <div id="block-itg-widget-top-stories-ordering" class="block block-itg-widget even">
-                                                        @include('interface_front.top_section_top', ['obj' => $obj])
-                                                    </div>
-                                                </div>
-                                                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
-                                                    <div class="mCSB_draggerContainer" style="">
-                                                        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 240px; max-height: 586px; top: 0px;">
-                                                            <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
-                                                        </div>
-                                                        <div class="mCSB_draggerRail"></div>
-                                                    </div>
-                                                </div>
+                                        <div class="data-holder" id="itg-block-2">
+                                            <div id="block-itg-widget-top-stories-ordering" class="block block-itg-widget even">
+                                                @include('interface_front.top_section_top', ['obj' => $obj])
                                             </div>
                                         </div>
                                     </div>

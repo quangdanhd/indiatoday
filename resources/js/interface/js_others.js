@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
     jQuery(document).on('click', function () {
         jQuery('#block-itg-menu-manager-third-level-menu ul.cities-third-level-menu').slideUp();
-        ;
     });
     ctymenu.click(function (e) {
         e.stopPropagation();
