@@ -28,8 +28,8 @@
                                 @endif
                             @endforeach
                             <div class="morediv">
-                                <a href="/category/{{strtolower($value[0]['name'])}}">
-                                    <span>more from {{strtolower($value[0]['name'])}}</span>
+                                <a href="/category/{{$value[0]['link']}}">
+                                    <span>more from {{$value[0]['name']}}</span>
                                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </a>
                             </div>

@@ -70,7 +70,7 @@ class HomeController extends ControllerUsers
                 $others_data[$key][$category_id] = [];
             }
         }
-        $others_db = DB::table('news')->select('id', 'category_id', 'name', 'url', 'title', 'image')->leftJoin('news_category', 'category_id', 'type')->where('new_of_category', 1)->where('publish', 1)->whereIn('category_id', $category)->orderBy('id', 'desc')->get();
+        $others_db = DB::table('news')->select('id', 'category_id', 'name', 'link', 'url', 'title', 'image')->leftJoin('news_category', 'category_id', 'type')->where('new_of_category', 1)->where('publish', 1)->whereIn('category_id', $category)->orderBy('id', 'desc')->get();
         $arr_0 = array_keys($others_data[0]);
         $arr_1 = array_keys($others_data[1]);
         $arr_2 = array_keys($others_data[2]);
