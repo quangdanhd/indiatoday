@@ -4,14 +4,14 @@
         <div class="container">
             <div>
                 <div class="lft pathone">
-                    <a href="#" itemprop="item">
-                        <span itemprop="name">News</span>
+                    <a href="/" itemprop="item">
+                        <span itemprop="name">Home</span>
                     </a>
                     <meta itemprop="position" content="1">
                 </div>
                 <div itemprop="itemListElement" class="lft pathone">
-                    <a href="#" itemprop="item">
-                        <span class="sec_name" itemprop="name">India</span>
+                    <a href="/{{$obj['detail']->link}}" itemprop="item">
+                        <span class="sec_name" itemprop="name">{{$obj['detail']->name}}</span>
                     </a>
                     <meta itemprop="position" content="2">
                 </div>

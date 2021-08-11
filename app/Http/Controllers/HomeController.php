@@ -97,7 +97,7 @@ class HomeController extends ControllerUsers
     public function show($url)
     {
         $obj = menu_category();
-        $news = DB::table('news')->select('id', 'title', 'describe', 'category_id', 'content', 'created_at', 'updated_at')->where('url', $url)->where('publish', 1)->first();
+        $news = DB::table('news')->join('news_category', 'news.category_id', 'news_category.type')->select('id', 'title', 'describe', 'category_id', 'content', 'created_at', 'updated_at', 'news_category.name', 'news_category.link')->where('url', $url)->where('publish', 1)->first();
         if ($news) {
             $obj['title'] = $news->title;
             $obj['detail'] = $news;
