@@ -19,7 +19,7 @@
     <div id="block-itg-layout-manager-footer-block" class="block block-itg-layout-manager odd">
         <section class="footer-top">
             <div class="container">
-                <div class="footer-top-link">INDIA24H</div>
+                <div class="footer-top-link">Mekong24h</div>
             </div>
         </section>
         <div id="iframe-display" style="display: none"></div>

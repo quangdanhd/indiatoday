@@ -10,7 +10,7 @@ class HomeController extends ControllerUsers
     public function index()
     {
         $obj = menu_category();
-        $obj['title'] = 'IndiaToday';
+        $obj['title'] = 'Mekong24h';
         // Recent
         $take = 3;
         $newest_db = DB::table('news')->select('id', 'url', 'title', 'image')->where('publish', 1)->orderBy('id', 'desc')->take($take)->get();

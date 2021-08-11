@@ -4,7 +4,7 @@
     @isset($title)
         <title>{{ $title }}</title>
     @else
-        <title>IndiaToday</title>
+        <title>Mekong24h</title>
     @endisset
     @include('interface_layouts.head_tag')
     <script>
