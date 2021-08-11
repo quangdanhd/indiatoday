@@ -1,7 +1,7 @@
 <div class="row itg-top-section">
     <div class="top-block">
         <div class="row">
-            <div class="col-sm-12 col-md-12 padrht0">
+            <div class="col-sm-12 col-md-12">
                 <div class="col-sm-7 col-md-7 col-lg-7 mrgb30 home-top-featured" data-tb-region="homeTopFeatured">
                     <div class="widget-help-text">Template widgets ( <strong>Home Page Feature</strong> )</div>
                     <div class="itg-widget">
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5 col-md-5 col-lg-5 padrht0 mrgb30 home-top-story" data-tb-region="homeTopStory">
+                <div class="col-sm-5 col-md-5 col-lg-5 mrgb30 home-top-story" data-tb-region="homeTopStory">
                     <div class="widget-help-text">Template widgets (<strong>Top Story</strong>)</div>
                     <div class="itg-widget">
                         <div class="top-n-most-popular-stories">
