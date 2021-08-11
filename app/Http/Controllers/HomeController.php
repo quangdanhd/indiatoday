@@ -26,7 +26,7 @@ class HomeController extends ControllerUsers
         }
         $obj['newest'] = $newest;
         // Top
-        $take = 10;
+        $take = 15;
         $top_db = get_top_news();
         $top_db = $top_db->select('id', 'url', 'title')->whereNotIn('id', $newest_id)->take($take)->get();
         $obj['top'] = $top_db;
