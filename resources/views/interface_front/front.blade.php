@@ -2,7 +2,6 @@
     <a id="main-content"></a>
     <h1 class="page__title title front-title-hide" id="page-title">News</h1>
     <div class="itg-layout-container itg-front">
-        @include('interface_front.breaking_news', ['obj' => $obj])
         <div class="row">
             <div class="col-md-12"></div>
         </div>
@@ -12,7 +11,7 @@
             @if(isset($obj['others'][0]))
                 @include('interface_front.common_section', ['obj' => $obj['others'][0]])
             @endif
-            @include('interface_front.h321_section', ['obj' => $obj])
+{{--            @include('interface_front.h321_section', ['obj' => $obj])--}}
             @if(isset($obj['others'][2]))
                 @include('interface_front.common_section_2', ['obj' => $obj['others'][2]])
             @endif

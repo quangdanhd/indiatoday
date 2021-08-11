@@ -32,35 +32,40 @@ class HomeController extends ControllerUsers
         $obj['top'] = $top_db;
         // OTHER
         $category_name = [
+            // 6 items
             [
-                'movies',
-                'sports',
-                'technology',
-                'lifestyle',
-                'trending',
-                'india',
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
             ],
+            // 1 items (*hidden)
             [
-                'magazine',
+                7,
             ],
+            // 3 items
             [
-                'television',
-                'business',
+                8,
+                9,
+                10,
             ],
+            // 6 items
             [
-                'science',
-                'education',
-                'cities',
-                'auto',
-                'world',
-                'others',
+                11,
+                12,
+                13,
+                11,
+                12,
+                13,
             ]
         ];
         $category = [];
         $others_data = [];
         foreach ($category_name as $key => $value) {
             foreach ($value as $k_2 => $val_2) {
-                $category_id = config('constants.news_category.' . $val_2);
+                $category_id = $val_2;
                 $category[] = $category_id;
                 $others_data[$key][$category_id] = [];
             }
