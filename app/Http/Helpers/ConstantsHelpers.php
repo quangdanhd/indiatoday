@@ -62,7 +62,7 @@ function session_client_ip()
 function menu_category()
 {
     // Category
-    $category_db = DB::table('news_category')->select('type', 'name')->orderBy('type', 'asc')->pluck('name', 'type')->toArray();
+    $category_db = DB::table('news_category')->select('type', 'name', 'link')->orderBy('type', 'asc')->pluck('name', 'link')->toArray();
     $obj['category'] = $category_db;
     $obj['category_show'] = 9;
     return $obj;

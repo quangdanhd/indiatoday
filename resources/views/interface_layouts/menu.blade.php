@@ -26,31 +26,7 @@
         <li class="nav-items ripple-effect">
             <a href="/" class="second-level-child second-level-child-0 notactive notactive url-type-external">Home</a>
         </li>
-        @if (isset($obj['category']))
-            @foreach($obj['category'] as $key => $value)
-                @if($loop->index == $obj['category_show'])
-                    <li class="all-menu">
-                        <a class="" href="javascript:void(0)">
-                            <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i>
-                        </a>
-                    </li>
-                @endif
-                @if($loop->index < $obj['category_show'])
-                    <li class="nav-items ripple-effect">
-                        <a href="/category/{{strtolower($value)}}" class="second-level-child second-level-child-{{($loop->index + 1)}} notactive notactive url-type-external">{{strtolower($value)}}</a>
-                    </li>
-                @else
-                    <li class="nav-items  ripple-effect hide">
-                        <a href="/category/{{strtolower($value)}}" style="background : transparent" class="second-level-child second-level-child-{{($loop->index + 1)}} notactive notactive url-type-external">{{strtolower($value)}}</a>
-                    </li>
-                @endif
-            @endforeach
-        @endif
-        <li class="drkmode nav-items ripple-effect hide" style="">
-            <label for="switch">
-                <span>Dark Mode</span>
-            </label>
-        </li>
+        @include('interface_layouts.menu_desktop')
     </ul>
     <div class="menu-login mhide" style="display: none">
         <div class="social-nav mhide">
@@ -124,20 +100,5 @@
             </dl>
         </div>
     </div>
-    <ul id="newlist" class="menu" style="left: 871px;">
-        @if (isset($obj['category']))
-            @foreach($obj['category'] as $key => $value)
-                @if($loop->index >= $obj['category_show'])
-                    <li>
-                        <a href="/category/{{strtolower($value)}}" style="background : transparent" target="_self" class="second-level-child second-level-child-{{($loop->index + 1)}} notactive notactive url-type-internal">{{strtolower($value)}}</a>
-                    </li>
-                @endif
-            @endforeach
-        @endif
-        <li class="drkmode">
-            <label for="switch">
-                <span>Dark Mode</span>
-            </label>
-        </li>
-    </ul>
+    @include('interface_layouts.menu_mobile')
 </div>

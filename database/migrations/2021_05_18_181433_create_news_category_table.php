@@ -9,74 +9,92 @@ class CreateNewsCategoryTable extends Migration
 {
     public function up()
     {
-        Schema::create('news_category', function (Blueprint $table) {
-            $table->integer('type');
-            $table->string('name', 20);
-        });
-        DB::table('news_category')->insert(
-            array(
-                [
-                    'type' => '1',
-                    'name' => 'MOVIES',
-                ],
-                [
-                    'type' => '2',
-                    'name' => 'SPORTS',
-                ],
-                [
-                    'type' => '3',
-                    'name' => 'TECHNOLOGY',
-                ],
-                [
-                    'type' => '4',
-                    'name' => 'LIFESTYLE',
-                ],
-                [
-                    'type' => '5',
-                    'name' => 'TRENDING',
-                ],
-                [
-                    'type' => '6',
-                    'name' => 'MAGAZINE',
-                ],
-                [
-                    'type' => '7',
-                    'name' => 'INDIA',
-                ],
-                [
-                    'type' => '8',
-                    'name' => 'TELEVISION',
-                ],
-                [
-                    'type' => '9',
-                    'name' => 'BUSINESS',
-                ],
-                [
-                    'type' => '10',
-                    'name' => 'SCIENCE',
-                ],
-                [
-                    'type' => '11',
-                    'name' => 'EDUCATION',
-                ],
-                [
-                    'type' => '12',
-                    'name' => 'CITIES',
-                ],
-                [
-                    'type' => '13',
-                    'name' => 'AUTO',
-                ],
-                [
-                    'type' => '14',
-                    'name' => 'WORLD',
-                ],
-                [
-                    'type' => '15',
-                    'name' => 'OTHERS',
-                ],
-            )
-        );
+        if (!Schema::hasTable('news_category')) {
+            Schema::create('news_category', function (Blueprint $table) {
+                $table->integer('type');
+                $table->string('name', 50);
+                $table->string('link', 50);
+            });
+            DB::table('news_category')->insert(
+                array(
+                    [
+                        'type' => '1',
+                        'name' => 'Phim',
+                        'link' => 'movies',
+                    ],
+                    [
+                        'type' => '2',
+                        'name' => 'Thể thao',
+                        'link' => 'sports',
+                    ],
+                    [
+                        'type' => '3',
+                        'name' => 'Công nghệ',
+                        'link' => 'technology',
+                    ],
+                    [
+                        'type' => '4',
+                        'name' => 'Lối sống',
+                        'link' => 'lifestyle',
+                    ],
+                    [
+                        'type' => '5',
+                        'name' => 'Xu hướng',
+                        'link' => 'trending',
+                    ],
+                    [
+                        'type' => '6',
+                        'name' => 'Tạp chí',
+                        'link' => 'magazine',
+                    ],
+                    [
+                        'type' => '7',
+                        'name' => 'INDIA',
+                        'link' => 'india',
+                    ],
+                    [
+                        'type' => '8',
+                        'name' => 'Truyền hình',
+                        'link' => 'television',
+                    ],
+                    [
+                        'type' => '9',
+                        'name' => 'Kinh doanh',
+                        'link' => 'business',
+                    ],
+                    [
+                        'type' => '10',
+                        'name' => 'Khoa học',
+                        'link' => 'science',
+                    ],
+                    [
+                        'type' => '11',
+                        'name' => 'Giáo dục',
+                        'link' => 'education',
+                    ],
+                    [
+                        'type' => '12',
+                        'name' => 'Thành phố',
+                        'link' => 'cities',
+                    ],
+                    [
+                        'type' => '13',
+                        'name' => 'Tự động',
+                        'link' => 'auto',
+                    ],
+                    [
+                        'type' => '14',
+                        'name' => 'Thế giới',
+                        'link' => 'world',
+                    ],
+                    [
+                        'type' => '15',
+                        'name' => 'khác',
+                        'link' => 'others',
+                    ],
+                )
+            );
+        }
     }
 
     public function down()

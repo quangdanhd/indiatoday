@@ -112,7 +112,7 @@ class HomeController extends ControllerUsers
     public function category($url)
     {
         $obj = menu_category();
-        $category = DB::table('news_category')->select('type')->where('name', $url)->first();
+        $category = DB::table('news_category')->select('type')->where('link', $url)->first();
         if ($category) {
             $obj['title'] = ucfirst($url);
             // List
