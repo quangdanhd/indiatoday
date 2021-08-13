@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @charset "UTF-8";
 .fa-chevron-up:before {
   content: "";
@@ -313,7 +314,7 @@ a {
 }
 
 .morediv a {
-  font-family: OpenSans-Bold;
+  font-family: OpenSans-Bold, serif;
 }
 
 #block-itg-layout-manager-header-block .social-nav .globle-search.active {
@@ -789,7 +790,7 @@ main {
 
 h1, h2, h3, h4 {
   font-weight: 500;
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
   word-wrap: break-word;
 }
 
@@ -798,19 +799,19 @@ h1, h2 {
 }
 
 h1 {
-  font-family: Merriweather-Bold;
+  font-family: Merriweather-Bold, serif;
   font-size: 40px;
   line-height: 46px;
 }
 
 h2 {
-  font-family: Merriweather-Bold;
+  font-family: Merriweather-Bold, serif;
   font-size: 29px;
   line-height: 34px;
 }
 
 h3 {
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans-Semibold, serif;
 }
 
 h3 {
@@ -871,7 +872,6 @@ img {
 #block-itg-layout-manager-header-block .social-nav .globle-search, footer .footer-top .footer-social-link .globle-search {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
 }
 
@@ -922,11 +922,11 @@ header {
 
 #block-itg-layout-manager-header-block a {
   color: #575757;
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
 }
 
 footer, footer .footer-bottom h4, footer a {
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
 }
 
 #block-itg-layout-manager-header-block .logo {
@@ -954,11 +954,9 @@ footer, footer .footer-bottom h4, footer a {
 
 #block-itg-layout-manager-header-block .social-nav a .fa {
   font-size: 23px;
-  font-size: 1.4375rem;
 }
 
 #block-itg-layout-manager-header-block .social-nav a .fa.fa-mobile {
-  font-size: 27px;
   font-size: 1.6875rem;
 }
 
@@ -1016,7 +1014,6 @@ footer, footer .footer-bottom h4, footer a {
 
 #block-itg-layout-manager-header-block .top-nav .main-nav li a {
   padding: 0 35px;
-  font-size: 27px;
   font-size: 1.6875rem;
   text-transform: uppercase;
 }
@@ -1058,7 +1055,6 @@ footer, footer .footer-bottom h4, footer a {
   height: 37px;
   white-space: nowrap;
   position: relative;
-  font-size: 14px;
   font-size: 0.875rem;
   line-height: 37px;
 }
@@ -1154,7 +1150,6 @@ footer .footer-top .footer-top-link {
 }
 
 footer .footer-top .footer-social-link {
-  font-size: 24px;
   font-size: 1.5rem;
   vertical-align: middle;
   float: right;
@@ -1176,7 +1171,6 @@ footer .footer-top .footer-social-link .globle-search .search-text {
 }
 
 footer .footer-top .footer-social-link .fa {
-  font-size: 24px;
   font-size: 1.5rem;
   vertical-align: middle;
 }
@@ -1222,7 +1216,6 @@ footer .footer-bottom h4 {
   color: #fff;
   text-transform: uppercase;
   margin-bottom: 5px;
-  font-size: 14px;
   font-size: 0.875rem;
 }
 
@@ -1234,7 +1227,6 @@ footer .footer-copyright {
   color: #a6a6a6;
   padding: 10px 0;
   text-align: center;
-  font-size: 12px;
   font-size: 0.75rem;
   border-top: 1px solid #111;
 }
@@ -1246,7 +1238,7 @@ footer .footer-copyright {
 .itg-listing li {
   padding: 15px;
   border-bottom: 1px solid #e4e4e4;
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans-Semibold, serif;
 }
 
 .itg-listing li a, .itg-listing li:last-child a {
@@ -1344,12 +1336,10 @@ footer .footer-copyright {
 
 .section-ordering h3 {
   padding: 10px 0;
-  font-size: 20px;
   font-size: 1.25rem;
 }
 
 .section-ordering p {
-  font-size: 15px;
   font-size: 0.9375rem;
   line-height: 20px;
   position: relative;
@@ -1589,12 +1579,12 @@ footer .footer-copyright {
 }
 
 .section-ordering p {
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans-Semibold, serif;
 }
 
 .itg-top-section .home-top-story .data-holder .itg-listing li {
   padding: 10px;
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans-Semibold, serif;
 }
 
 #page {
@@ -1651,7 +1641,7 @@ input[type=text]:focus {
   font-weight: 600;
   margin-bottom: 10px;
   height: auto;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans-Bold, serif;
 }
 
 .widget-title a {
@@ -1777,7 +1767,6 @@ footer .footer-top ul li a:hover {
 
   #block-itg-layout-manager-header-block .top-nav .main-nav li a {
     padding: 0 15px;
-    font-size: 20px;
     font-size: 1.25rem;
   }
 
@@ -1968,7 +1957,6 @@ footer .footer-top ul li a:hover {
   }
 
   #block-itg-layout-manager-header-block .navigation .menu li.all-menu a i {
-    font-size: 22px;
     font-size: 1.375rem;
     color: #131212;
     vertical-align: middle;
@@ -2050,7 +2038,6 @@ footer .footer-top ul li a:hover {
   }
 
   .section-ordering h3 {
-    font-size: 20px;
     font-size: 1.25rem;
   }
 }
@@ -2208,7 +2195,7 @@ footer .footer-top ul li a:hover {
 .morediv {
   text-align: right;
   font-size: 11px;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans-Bold, serif;
 }
 
 .morediv a {
@@ -2547,7 +2534,7 @@ footer .footer-top .footer-social-link .globle-search.active {
     font-size: 16px;
     font-weight: 600;
     height: auto;
-    font-family: OpenSans-Bold;
+    font-family: OpenSans-Bold, serif;
   }
 
   .home-trending-video .itg-widget-child.tab-data {
@@ -2586,8 +2573,7 @@ footer .footer-top .footer-social-link .globle-search.active {
 .common-highlights button {
   background: 0 0;
   border: none;
-  margin: 10px 0 0 0;
-  margin-right: 20px;
+  margin: 10px 20px 0 0;
   cursor: pointer;
 }
 
@@ -2632,7 +2618,7 @@ footer .footer-top .footer-social-link .globle-search.active {
 .impact_feature_section ul.impact-feature-listing li {
   overflow: hidden;
   padding: 12px 0 12px 12px;
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans-Semibold, serif;
   position: relative;
 }
 
@@ -2880,7 +2866,6 @@ footer .footer-top .footer-social-link .globle-search.active {
   padding: 0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   overflow: auto;
   position: relative;
@@ -3009,7 +2994,6 @@ footer .footer-top .footer-social-link .globle-search.active {
   text-decoration: none;
   color: #000;
   border-width: 0;
-  background: 0 0;
   border-style: none;
   border-color: #d6d5d3;
   padding: 0 0 6px 0;
@@ -3017,7 +3001,7 @@ footer .footer-top .footer-social-link .globle-search.active {
   display: block;
   margin: 0;
   position: relative;
-  background-color: transparent;
+  background: transparent 0 0;
   box-sizing: initial;
   height: auto;
   width: auto;
@@ -4154,7 +4138,7 @@ header {
 
 #block-itg-layout-manager-header-block a {
   color: #575757;
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
 }
 
 #block-itg-layout-manager-header-block .social-nav {
@@ -4163,12 +4147,10 @@ header {
 }
 
 #block-itg-layout-manager-header-block .social-nav a .fa {
-  font-size: 23px;
   font-size: 1.4375rem;
 }
 
 #block-itg-layout-manager-header-block .social-nav a .fa.fa-mobile {
-  font-size: 27px;
   font-size: 1.6875rem;
 }
 
@@ -4223,7 +4205,6 @@ header {
 
 #block-itg-layout-manager-header-block .top-nav .main-nav li a {
   padding: 0 35px;
-  font-size: 27px;
   font-size: 1.6875rem;
   text-transform: uppercase;
 }
@@ -4263,7 +4244,6 @@ header {
   height: 37px;
   white-space: nowrap;
   position: relative;
-  font-size: 14px;
   font-size: 0.875rem;
   line-height: 37px;
 }
@@ -4434,7 +4414,6 @@ header {
 
   #block-itg-layout-manager-header-block .top-nav .main-nav li a {
     padding: 0 15px;
-    font-size: 20px;
     font-size: 1.25rem;
   }
 
@@ -4698,7 +4677,6 @@ header {
 }
 
 .story-section h1 {
-  font-size: 24px;
   font-size: 1.5rem;
   line-height: 30px;
   letter-spacing: -1px;
@@ -4756,7 +4734,7 @@ section.sidebar .block-itg-ads {
   color: #bb0a0a;
   display: block;
   position: relative;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans-Bold, serif;
 }
 
 .may-be-recommend h3:before {
@@ -4934,11 +4912,10 @@ section.sidebar .block-itg-ads {
   display: block;
   overflow: hidden;
   word-wrap: break-word;
-  font-size: 15px;
   font-size: 0.9375rem;
   line-height: 20px;
   color: #111;
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
 }
 
 .may-be-suggest-container ul .pic {
@@ -4957,9 +4934,8 @@ section.sidebar .block-itg-ads {
   text-transform: uppercase;
   font-weight: 700;
   color: #bb0a0a;
-  display: none;
   position: relative;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans-Bold, serif;
   display: block;
 }
 
@@ -4980,7 +4956,6 @@ section.sidebar .block-itg-ads {
 
 .story-section .story-right .description {
   padding-top: 10px;
-  font-size: 17px;
   font-size: 1.0625rem;
   line-height: 29px;
   word-wrap: break-word;
@@ -4997,11 +4972,10 @@ section.sidebar .block-itg-ads {
 
 .story-section .story-right .image-alt {
   color: #595959;
-  font-size: 13px;
   font-size: 0.8125rem;
   padding: 5px 0;
   border-bottom: 1px solid #e5e5e5;
-  font-family: OpenSans-Regular;
+  font-family: OpenSans-Regular, serif;
 }
 
 @media only screen and (max-width: 768px) {
