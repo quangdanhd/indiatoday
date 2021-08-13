@@ -7,10 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends ControllerUsers
 {
-    public function index()
+    private function config()
     {
         $obj = menu_category();
         $obj['title'] = 'Mekong24h';
+        return $obj;
+    }
+
+    public function index()
+    {
+        $obj = $this->config();
         // Recent
         $take = 3;
         $newest_db = DB::table('news')->select('id', 'url', 'title', 'image')->where('publish', 1)->orderBy('id', 'desc')->take($take)->get();
@@ -96,10 +102,10 @@ class HomeController extends ControllerUsers
 
     public function show($url)
     {
-        $obj = menu_category();
+        $obj = $this->config();
         $news = DB::table('news')->join('news_category', 'news.category_id', 'news_category.type')->select('id', 'title', 'describe', 'category_id', 'content', 'created_at', 'updated_at', 'news_category.name', 'news_category.link')->where('url', $url)->where('publish', 1)->first();
         if ($news) {
-            $obj['title'] = $news->title;
+            $obj['title'] = $news->title . ' | ' . $obj['title'];;
             $obj['detail'] = $news;
             $this->view_node($news->id);
             $this->aside_data($obj, $news->category_id);
@@ -111,10 +117,10 @@ class HomeController extends ControllerUsers
 
     public function category($url)
     {
-        $obj = menu_category();
-        $category = DB::table('news_category')->select('type')->where('link', $url)->first();
+        $obj = $this->config();
+        $category = DB::table('news_category')->select('type', 'name')->where('link', $url)->first();
         if ($category) {
-            $obj['title'] = ucfirst($url);
+            $obj['title'] = ucfirst(mb_strtolower($category->name)) . ' | ' . $obj['title'];
             // List
             $take = 20;
             $list = DB::table('news')->select('id', 'title', 'describe', 'image', 'url')->where('category_id', $category->type)->where('publish', 1)->paginate($take);
