@@ -119,14 +119,14 @@ class HomeController extends ControllerUsers
             $take = 20;
             $list = DB::table('news')->select('id', 'title', 'describe', 'image', 'url')->where('category_id', $category->type)->where('publish', 1)->paginate($take);
             $obj['list'] = $list;
-            $this->aside_data($obj, $category->type);
+            $this->aside_data($obj, $category->type, false);
             return view('category')->with('obj', $obj);
         }
         $obj['title'] = '404 | Not Found';
         return view('errors.404_custom')->with('obj', $obj);
     }
 
-    public function aside_data(&$obj, $category_id)
+    public function aside_data(&$obj, $category_id, $recommend = true)
     {
         // Top
         $take = 4;
@@ -140,9 +140,13 @@ class HomeController extends ControllerUsers
         }
         $obj['top'] = $top;
         // Recommend
-        $take = 5;
-        $recommend_db = DB::table('news')->select('id', 'title', 'url', 'image')->where('publish', 1)->where('category_id', $category_id)->orderBy('id', 'desc')->take($take)->get();
-        $obj['recommend'] = $recommend_db;
+        if ($recommend) {
+            $take = 5;
+            $recommend_db = DB::table('news')->select('id', 'title', 'url', 'image')->where('publish', 1)->where('category_id', $category_id)->orderBy('id', 'desc')->take($take)->get();
+            $obj['recommend'] = $recommend_db;
+        } else {
+            $obj['recommend'] = [];
+        }
     }
 
     public function view_node($news_id)

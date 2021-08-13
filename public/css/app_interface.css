@@ -18979,3 +18979,28 @@ img {
     border-radius: 3px;
   }
 }
+@media only screen and (max-width: 769px) {
+  #main .sidebars {
+    clear: both;
+  }
+
+  .view-category-wise-content-list .catagory-listing .detail p,
+.view-blog-listing .catagory-listing .detail p,
+.page-podcast .view-podcasts-listing .catagory-listing .detail p,
+.page-podcasts-listing .view-podcasts-listing .catagory-listing .detail p {
+    display: none;
+  }
+
+  .view-category-wise-content-list .catagory-listing .pic, .view-blog-listing .catagory-listing .pic,
+.page-podcast .view-podcasts-listing .catagory-listing .pic,
+.page-podcasts-listing .view-podcasts-listing .catagory-listing .pic {
+    width: 100%;
+  }
+
+  .view-category-wise-content-list .catagory-listing .detail,
+.view-blog-listing .catagory-listing .detail,
+.page-podcast .view-podcasts-listing .catagory-listing .detail,
+.page-podcasts-listing .view-podcasts-listing .catagory-listing .detail {
+    clear: both;
+  }
+}
