@@ -5,7 +5,7 @@
             <div class="droppable ">
                 <div class="widget-wrapper section_wise_order">
                 <span class="widget-title">
-                    <a href="">{{$value[0]['name']}}</a>
+                    <a href="/category/{{$value[0]['link']}}">{{$value[0]['name']}}</a>
                 </span>
                     <div class="data-holder" id="itg-block-{{$loop->index + 7}}">
                         <div class="section-ordering video-gif">
