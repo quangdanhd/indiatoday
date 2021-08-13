@@ -20,7 +20,6 @@
             @endif
             <div class="option2sty"></div>
             <div class="no-more-card" style="display:none">No More Result Found.</div>
-            <div class="it-gaming-section"></div>
         </div>
     </div>
 </section>
