@@ -16,7 +16,7 @@
                 </div>
                 <div class="nav-container-menu">
                     <div class="nav-centerall">
-                        <ul class="menu">
+                        <ul class="menu menu-top">
                             <li class="menu__item is-leaf first leaf">
                                 <a href="" class="menu__link active">News</a>
                             </li>
@@ -31,7 +31,7 @@
                                 </a>
                             </div>
                         </div>
-                        <ul class="menu">
+                        <ul class="menu menu-top">
                             <li class="menu__item is-leaf first leaf">
                                 <a href="" title="APP" target="_blank" class="menu__link">APP</a>
                             </li>

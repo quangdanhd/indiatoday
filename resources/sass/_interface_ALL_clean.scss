@@ -4342,3 +4342,7 @@ img {
         clear: both;
     }
 }
+.menu.menu-top {
+    opacity: 0;
+    pointer-events: none;
+}
