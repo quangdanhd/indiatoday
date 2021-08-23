@@ -1,7 +1,4 @@
 @charset "UTF-8";
-.fa-chevron-up:before {
-    content: "";
-}
 @media screen and (max-width: 1024px) and (min-width: 991px) {
     .front .itg-top-section .top-rhs-add .home-trending-video {
         width: 100%;
@@ -530,41 +527,6 @@ a {
         width: 25%;
     }
 }
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.fa-search:before {
-    content: "";
-}
-.fa-user:before {
-    content: "";
-}
-.fa-chevron-right:before {
-    content: "";
-}
-.fa-twitter:before {
-    content: "";
-}
-.fa-facebook:before {
-    content: "";
-}
-.fa-rss:before {
-    content: "";
-}
-.fa-mobile:before {
-    content: "";
-}
-.fa-circle:before {
-    content: "";
-}
-.fa-share-alt:before {
-    content: "";
-}
 main {
     display: block;
 }
@@ -790,12 +752,6 @@ header {
 #block-itg-layout-manager-header-block .social-nav {
     position: relative;
     float: right;
-}
-#block-itg-layout-manager-header-block .social-nav a .fa {
-    font-size: 23px;
-}
-#block-itg-layout-manager-header-block .social-nav a .fa.fa-mobile {
-    font-size: 1.6875rem;
 }
 #block-itg-layout-manager-header-block .social-nav .globle-search {
     position: absolute;
@@ -1209,9 +1165,6 @@ header {
     line-height: 45px;
     color: #333;
 }
-#block-itg-layout-manager-header-block .social-nav dt:hover .social-dropdown dl dt .fa, #block-itg-layout-manager-header-block .social-nav dt:hover .social-dropdown dl dt:hover .fa {
-    color: #333;
-}
 .front .ad-widget .sidebar-ad .block-itg-ads {
     margin: 0 auto;
     text-align: center;
@@ -1330,12 +1283,6 @@ input[type=text]:focus {
     }
     .featured-news .featured-post > a img:hover {
         transform: scale(1.2);
-    }
-    .social-nav dt .fa {
-        transition: all 0.3s;
-    }
-    .social-nav dt:hover .fa {
-        color: #ffc106;
     }
     .top-n-most-popular-stories .widget-wrapper .data-holder {
         max-height: 670px;
@@ -1946,12 +1893,6 @@ body.front #block-itg-layout-manager-header-block .top-nav .main-nav li a.active
         width: 9px;
         height: 9px;
     }
-}
-.fa-chevron-left:before {
-    content: "";
-}
-.fa-chevron-right:before {
-    content: "";
 }
 @media screen and (max-width: 1024px) and (min-width: 991px) {
     .front .itg-top-section .top-rhs-add-child .ad-widget {
@@ -3190,14 +3131,6 @@ h1, h2, h3, h4, p {
         width: 33.33333333%;
     }
 }
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 h1, h2, h3, h4 {
     font-weight: 500;
     font-family: OpenSans-Regular, Arial, sans-serif;
@@ -3275,39 +3208,6 @@ header {
 #main {
     min-height: 500px;
 }
-.fa-facebook:before {
-    content: "";
-}
-.fa-search:before {
-    content: "";
-}
-.fa-user:before {
-    content: "";
-}
-.fa-twitter:before {
-    content: "";
-}
-.fa-rss:before {
-    content: "";
-}
-.fa-mobile:before {
-    content: "";
-}
-.fa-circle:before {
-    content: "";
-}
-.fa-share-alt:before {
-    content: "";
-}
-.fa-facebook-f:before {
-    content: "";
-}
-.fa-chevron-left:before {
-    content: "";
-}
-.fa-chevron-right:before {
-    content: "";
-}
 #block-itg-layout-manager-header-block .top-nav ul li a {
     padding-left: 10px;
     padding-right: 10px;
@@ -3358,9 +3258,6 @@ header {
     background: #f0f0f0;
     height: 37px;
 }
-#block-itg-layout-manager-header-block .social-nav dt:hover .social-dropdown dl dt .fa, #block-itg-layout-manager-header-block .social-nav dt:hover .social-dropdown dl dt:hover .fa {
-    color: #333;
-}
 #block-itg-layout-manager-header-block {
     padding-top: 20px;
     background: #fff;
@@ -3373,12 +3270,6 @@ header {
 #block-itg-layout-manager-header-block .social-nav {
     position: relative;
     float: right;
-}
-#block-itg-layout-manager-header-block .social-nav a .fa {
-    font-size: 1.4375rem;
-}
-#block-itg-layout-manager-header-block .social-nav a .fa.fa-mobile {
-    font-size: 1.6875rem;
 }
 #block-itg-layout-manager-header-block .social-nav .globle-search {
     position: absolute;
@@ -3964,14 +3855,6 @@ section.sidebar .block-itg-ads {
     line-height: 29px;
     font-size: 16px;
     border-radius: 100%;
-}
-.share_bar .social-share .fa-facebook {
-    color: #fff;
-    background: #373985;
-}
-.share_bar .social-share .fa-twitter {
-    color: #fff;
-    background: #4099d1;
 }
 @media only screen and (min-width: 769px) {
     #block-itg-layout-manager-front-end-breadcrumb {
