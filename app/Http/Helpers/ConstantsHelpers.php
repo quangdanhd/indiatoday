@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\news;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 function get_db_column()
@@ -61,9 +62,15 @@ function session_client_ip()
 
 function menu_category()
 {
-    // Category
-    $category_db = DB::table('news_category')->select('type', 'name', 'link')->orderBy('type', 'asc')->pluck('name', 'link')->toArray();
-    $obj['category'] = $category_db;
+    $cache_key = 'menu-data-cached';
+    $menu_cached = Cache::get($cache_key);
+    if ($menu_cached == null) {
+        // Category
+        $menu = DB::table('news_category')->select('type', 'name', 'link')->orderBy('type', 'asc')->pluck('name', 'link')->toArray();
+        Cache::put($cache_key, $menu);
+        $menu_cached = Cache::get($cache_key);
+    }
+    $obj['category'] = $menu_cached;
     $obj['category_show'] = 9;
     return $obj;
 }
