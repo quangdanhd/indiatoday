@@ -161,7 +161,7 @@ class HomeController extends Controller
             $language_selected = isset($request['language_selected']) ? $request['language_selected'] : '';
             DB::table('configs')->where('key', 'LANGUAGE')->update(['active' => 0]);
             DB::table('configs')->where('key', 'LANGUAGE')->where('value', $language_selected)->update(['active' => 1]);
-            Cache::forget('setLocale_language');
+            Cache::put('setLocale_language', $language_selected);
             return [
                 'status' => 'success',
                 'message' => 'Save the settings successfully!',
