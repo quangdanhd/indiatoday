@@ -35,6 +35,8 @@ Route::group(['namespace' => 'Admin'], function () {
     // Get news
     Route::post('get-news-from-url', [GetNewsController::class, 'create_news']);
     Route::get('get-news-category', [GetNewsController::class, 'category']);
+    // Flush Cache
+    Route::get('flush-cache', [HomeController::class, 'flush_cache']);
 });
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);

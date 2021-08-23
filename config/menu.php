@@ -16,6 +16,10 @@ return [
                     'label' => 'News',
                     'link' => '/admin-news'
                 ],
+                [
+                    'label' => 'Flush Cache',
+                    'link' => '/flush-cache'
+                ],
             ]
         ],
         [

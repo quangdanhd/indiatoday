@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -129,5 +130,12 @@ class HomeController extends Controller
         //    return $data;
         //}
         return $obj;
+    }
+
+    public function flush_cache()
+    {
+        Cache::flush();
+        $mes = 'Xóa cache thành công!';
+        return View::make('admin/view_message')->with('mes', $mes);
     }
 }
