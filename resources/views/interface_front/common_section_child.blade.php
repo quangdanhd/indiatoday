@@ -29,7 +29,7 @@
                             @endforeach
                             <div class="morediv">
                                 <a href="/category/{{$value[0]['link']}}">
-                                    <span>more from {{$value[0]['name']}}</span>
+                                    <span>{{Lang::has('views.more_from') ? __('views.more_from') : Lang::get('views.more_from', [], 'en')}} {{$value[0]['name']}}</span>
                                     <i class="fas fa-chevron-right" aria-hidden="true"></i>
                                 </a>
                             </div>

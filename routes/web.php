@@ -37,6 +37,8 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('get-news-category', [GetNewsController::class, 'category']);
     // Flush Cache
     Route::get('flush-cache', [HomeController::class, 'flush_cache']);
+    // Flush Cache
+    Route::any('settings', [HomeController::class, 'settings']);
 });
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);

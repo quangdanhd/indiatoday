@@ -138,4 +138,34 @@ class HomeController extends Controller
         $mes = 'Xóa cache thành công!';
         return View::make('admin/view_message')->with('mes', $mes);
     }
+
+    public function settings()
+    {
+        if (request()->method() == 'GET') {
+            $obj = [];
+            $language = [];
+            $language_selected = '';
+            $language_db = DB::table('configs')->select('value', 'name', 'active')->where('key', 'LANGUAGE')->orderBy('id')->get();
+            foreach ($language_db as $key => $value) {
+                $arr = (array)$value;
+                $language[$arr['value']] = $arr['name'];
+                if (!!$arr['active'] && $language_selected == '') {
+                    $language_selected = $arr['value'];
+                }
+            }
+            $obj['language'] = $language;
+            $obj['language_selected'] = $language_selected;
+            return View::make('admin/settings')->with('obj', $obj);
+        } else {
+            $request = request()->all();
+            $language_selected = isset($request['language_selected']) ? $request['language_selected'] : '';
+            DB::table('configs')->where('key', 'LANGUAGE')->update(['active' => 0]);
+            DB::table('configs')->where('key', 'LANGUAGE')->where('value', $language_selected)->update(['active' => 1]);
+            Cache::forget('setLocale_language');
+            return [
+                'status' => 'success',
+                'message' => 'Save the settings successfully!',
+            ];
+        }
+    }
 }

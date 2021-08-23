@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,18 @@ class ControllerUsers extends BaseController
 
     public function __construct()
     {
+        $lang_key = 'setLocale_language';
+        $lang = Cache::get($lang_key);
+        if ($lang == null) {
+            $lang_db = DB::table('configs')->select('value')->where('key', 'LANGUAGE')->where('active', 1)->first();
+            if ($lang_db) {
+                $lang = $lang_db->value;
+            } else {
+                $lang = 'en';
+            }
+            Cache::put($lang_key, $lang);
+        }
+        App::setLocale($lang);
         $uniqueID = session_uniqueID();
         $cache_key = 'access_times_' . $uniqueID;
         $access_times = Cache::get($cache_key);

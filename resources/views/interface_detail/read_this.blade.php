@@ -1,5 +1,5 @@
 <h3>
-    <span>READ THIS</span>
+    <span>{{Lang::has('views.read_this') ? __('views.read_this') : Lang::get('views.read_this', [], 'en')}}</span>
 </h3>
 <ul>
     @foreach($obj as $key => $value)

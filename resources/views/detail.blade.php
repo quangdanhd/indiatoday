@@ -5,7 +5,7 @@
             <div>
                 <div class="lft pathone">
                     <a href="/" itemprop="item">
-                        <span itemprop="name">Home</span>
+                        <span itemprop="name">{{Lang::has('views.home') ? __('views.home') : Lang::get('views.home', [], 'en')}}</span>
                     </a>
                     <meta itemprop="position" content="1">
                 </div>

@@ -25,7 +25,7 @@
                             <div class="itg-widget-child tab-data tab-data-1">
                                 <div class="droppable ">
                                     <div class="widget-wrapper top_stories_ordering">
-                                        <span class="widget-title">Top Stories</span>
+                                        <span class="widget-title">{{Lang::has('views.top_stories') ? __('views.top_stories') : Lang::get('views.top_stories', [], 'en')}}</span>
                                         <div class="data-holder" id="itg-block-2">
                                             <div id="block-itg-widget-top-stories-ordering" class="block block-itg-widget even">
                                                 @include('interface_front.top_section_top', ['obj' => $obj])

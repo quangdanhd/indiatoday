@@ -24,7 +24,7 @@
             </div>
         </li>
         <li class="nav-items ripple-effect">
-            <a href="/" class="second-level-child second-level-child-0 notactive notactive url-type-external">Home</a>
+            <a href="/" class="second-level-child second-level-child-0 notactive notactive url-type-external">{{Lang::has('views.home') ? __('views.home') : Lang::get('views.home', [], 'en')}}</a>
         </li>
         @include('interface_layouts.menu_desktop')
     </ul>

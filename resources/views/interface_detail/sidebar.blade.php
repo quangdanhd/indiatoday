@@ -17,7 +17,7 @@
     <div id="block-itg-front-end-common-recommend-news-block" class="block block-itg-front-end-common odd">
         <div class="may-be-recommend mhide">
             <h3>
-                <span>Recommended</span>
+                <span>{{Lang::has('views.recommended') ? __('views.recommended') : Lang::get('views.recommended', [], 'en')}}</span>
             </h3>
             <div id="taboola-right-rail-thumbnails" class="trc_related_container trc_spotlight_widget trc_elastic trc_elastic_alternating-thumbnails-rr">
                 <div class="trc_rbox_container">

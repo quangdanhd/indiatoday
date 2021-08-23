@@ -17,6 +17,10 @@ return [
                     'link' => '/admin-news'
                 ],
                 [
+                    'label' => 'Settings',
+                    'link' => '/settings'
+                ],
+                [
                     'label' => 'Flush Cache',
                     'link' => '/flush-cache'
                 ],
