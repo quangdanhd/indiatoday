@@ -4,8 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * @mixin Builder
+ */
 class news extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
@@ -44,6 +49,7 @@ class news extends Model implements Authenticatable
                 }
             }
             $model->url = $url . '-' . $id;
+            Cache::forget('home-data-cached');
         });
     }
 
