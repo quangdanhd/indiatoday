@@ -213,6 +213,7 @@ function font_array()
         $font = DB::table('configs')->select('value')->where('key', $font_key)->where('active', 1)->first();
         if ($font) {
             $font_cached = (array)json_decode($font->value);
+            Cache::put($cache_key, $font_cached);
         }
     }
     return $font_cached;
