@@ -148,16 +148,22 @@ class HomeController extends ControllerUsers
     public function aside_data(&$obj, $category_id, $recommend = true)
     {
         // Top
-        $take = 4;
-        $top_db = get_top_news();
-        $top_db = $top_db->select('id', 'title', 'url', 'image')->take($take)->get();
-        $top = [];
-        foreach ($top_db as $key => $value) {
-            $arr = (array)$value;
-            $arr['image'] = str_replace('news_370x208', 'news_237x133', $arr['image']);
-            $top[] = $arr;
+        $cache_key = 'top-aside-cached';
+        $top_cached = Cache::get($cache_key);
+        if ($top_cached == null) {
+            $take = 4;
+            $top_db = get_top_news();
+            $top_db = $top_db->select('id', 'title', 'url', 'image')->take($take)->get();
+            $top = [];
+            foreach ($top_db as $key => $value) {
+                $arr = (array)$value;
+                $arr['image'] = str_replace('news_370x208', 'news_237x133', $arr['image']);
+                $top[] = $arr;
+            }
+            $top_cached = $top;
+            Cache::put($cache_key, $top_cached);
         }
-        $obj['top'] = $top;
+        $obj['top'] = $top_cached;
         // Recommend
         if ($recommend) {
             $take = 5;

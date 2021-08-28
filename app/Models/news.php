@@ -50,6 +50,7 @@ class news extends Model implements Authenticatable
             }
             $model->url = $url . '-' . $id;
             Cache::forget('home-data-cached');
+            Cache::forget('top-aside-cached');
         });
     }
 
