@@ -115,6 +115,9 @@ class HomeController extends ControllerUsers
         $obj = $this->config();
         $news = DB::table('news')->join('news_category', 'news.category_id', 'news_category.type')->select('id', 'title', 'describe', 'category_id', 'content', 'created_at', 'updated_at', 'news_category.name', 'news_category.link')->where('url', $url)->where('publish', 1)->first();
         if ($news) {
+            $news->title = change_font($news->title);
+            $news->describe = change_font($news->describe);
+            $news->content = change_font($news->content, true);
             $obj['title'] = $news->title . ' | ' . $obj['title'];;
             $obj['detail'] = $news;
             $this->view_node($news->id);

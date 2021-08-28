@@ -172,3 +172,66 @@ function config_search_popup($key)
     }
     return [];
 }
+
+function change_font($str, $html = false)
+{
+    if ($html) {
+        preg_match_all('/>([^<]+)</', $str, $output);
+        if ($output && isset($output[0])) {
+            foreach ($output[0] as $key => $value) {
+                $replace = replace_font($value);
+                $str = str_replace($value, $replace, $str);
+            }
+        }
+    } else {
+        $str = replace_font($str);
+    }
+    return $str;
+}
+
+function replace_font($text, $undo = false)
+{
+    $replace_font = font_array();
+    if ($replace_font) {
+        foreach ($replace_font as $key => $value) {
+            if (!$undo) {
+                $text = str_replace($key, $value, $text);
+            } else {
+                $text = str_replace($value, $key, $text);
+            }
+        }
+    }
+    return $text;
+}
+
+function font_array()
+{
+    $cache_key = 'font-data-cached';
+    $font_cached = Cache::get($cache_key);
+    if ($font_cached == null) {
+        $font_key = config('constants.configs_key.font');
+        $font = DB::table('configs')->select('value')->where('key', $font_key)->where('active', 1)->first();
+        if ($font) {
+            $font_cached = (array)json_decode($font->value);
+        }
+    }
+    return $font_cached;
+}
+
+function make_change_font_arr()
+{
+    $a = 'abcdefghijklmnopqrstuvwxyz';
+    $b = 'a b c ...';
+    $a_arr = str_split($a);
+    $b_arr = explode(' ', $b);
+    $arr = [];
+    foreach ($a_arr as $key => $value) {
+        $arr[$value] = $b_arr[$key];
+    }
+    echo '<pre>';
+    foreach ($arr as $key => $value) {
+        echo '"' . $key . '"' . ' => ' . '"' . $value . '",' . '<br>';
+    }
+    echo '</pre>';
+    dd($arr);
+}

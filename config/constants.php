@@ -25,4 +25,8 @@ return [
         'multiple_image' => 'multiple_image',
     ],
     'explode_filter' => '_:',
+    'configs_key' => [
+        'language' => 'LANGUAGE',
+        'font' => 'FONT',
+    ]
 ];

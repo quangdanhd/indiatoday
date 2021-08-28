@@ -130,7 +130,8 @@
                             'searchreplace visualblocks code fullscreen',
                             'insertdatetime media table paste code help wordcount',
                          ],
-                         toolbar: 'undo redo | formatselect | forecolor | bold italic underline backcolor | \ alignleft aligncenter alignright alignjustify | \ bullist numlist outdent indent | removeformat | link image | code | fullscreen | help'
+                         toolbar: 'undo redo | formatselect | forecolor | bold italic underline backcolor | \ alignleft aligncenter alignright alignjustify | \ bullist numlist outdent indent | removeformat | link image | code | fullscreen | help',
+                         entity_encoding: 'raw',
                     }"/>
                 </label>
                 <!--multiple_image-->
