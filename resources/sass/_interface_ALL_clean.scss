@@ -722,7 +722,6 @@ header {
     z-index: 9999;
 }
 #block-itg-layout-manager-header-block {
-    padding-top: 20px;
     background: #fff;
     position: relative;
 }
@@ -4037,6 +4036,14 @@ img {
         font-size: 13px;
     }
 }
+@media (min-width: 767px) {
+    #block-itg-layout-manager-header-block .top-nav {
+        display: none;
+    }
+    #block-itg-layout-manager-header-block {
+        padding-top: 0;
+    }
+}
 @media (max-width: 767px) {
     .main-footer {
         .wrap {
@@ -4045,5 +4052,8 @@ img {
         .copyright {
             text-align: center;
         }
+    }
+    .hide-md {
+        display: none;
     }
 }

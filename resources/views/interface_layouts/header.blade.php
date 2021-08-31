@@ -27,7 +27,7 @@
                         <div class="container headeritg-logo">
                             <div class="logo">
                                 <a href="/" rel="home" class="header__logo" id="logo">
-                                    <img src="{{ asset('/img/logo.png') }}" alt="Home" class="header__logo-image">
+                                    <img src="{{ asset('/img/logo_2.png') }}" alt="Home" class="header__logo-image">
                                 </a>
                             </div>
                         </div>
