@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 
@@ -156,7 +157,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
-        $message = $this->this_validate('', $request);
+        $message = $this->this_validate('');
         if ($message) {
             return [
                 'status' => 'error',
@@ -179,7 +180,7 @@ class NewsController extends Controller
     {
         $requestData = $request->all();
         $id = isset($requestData['formData']['id']) ? $requestData['formData']['id'] : '';
-        $message = $this->this_validate($id, $request);
+        $message = $this->this_validate($id);
         if ($message) {
             return [
                 'status' => 'error',
@@ -191,9 +192,45 @@ class NewsController extends Controller
         return $return;
     }
 
-    public function this_validate($id, $request)
+    public function this_validate($id)
     {
         $message = [];
+        $request = request()->all()['formData'];
+        $validator = Validator::make(
+            $request,
+            [
+                'title' => [
+                    'required',
+                    'string',
+                    'max:250',
+                ],
+                'category_id' => [
+                    'required',
+                    'integer',
+                ],
+                'describe' => [
+                    'required',
+                    'string',
+                    'max:500',
+                ],
+                'content' => [
+                    'required',
+                ],
+            ],
+            [
+                'title.required' => 'Tiêu đề không được để trống.',
+                'title.max' => 'Tiêu đề không được vượt quá 250 ký tự.',
+                'describe.required' => 'Mô tả không được để trống.',
+                'describe.max' => 'Mô tả không được vượt quá 500 ký tự.',
+            ]
+        );
+        if ($validator->fails()) {
+            foreach ($validator->errors()->toArray() as $key => $value) {
+                foreach ($value as $k_2 => $val_2) {
+                    $message[] = $val_2;
+                }
+            }
+        }
         if ($message) {
             $message = '<br>' . join('<br>', $message);
         }
