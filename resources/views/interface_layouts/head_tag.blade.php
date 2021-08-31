@@ -5,9 +5,7 @@
 <link rel="shortcut icon" href={{ asset('favicon.ico') }} />
 <link rel="stylesheet" href="{{ mix('/css/app_interface.css') }}">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1.0, maximum-scale=5.0">
-<link rel="apple-touch-icon" href="https://akm-img-a-in.tosshub.com/indiatoday/images/misc/IT-logo-180.png">
 <link rel="canonical" href=>
 <meta name="description" content="Check out the latest news around the world.">
 <meta name="news_keywords" content="Latest News, World News Today, News Headlines, Breaking News Headlines">
@@ -21,7 +19,5 @@
 <meta property="og:description" content="Check out the latest news around the world.">
 <meta property="og:title" content="Latest News, Breaking News Today - Bollywood, Cricket, Business">
 <meta property="og:url" content="https://mekong24h.xyz/">
-<meta name="twitter:image" content="https://akm-img-a-in.tosshub.com/sites/all/themes/itg/images/itg_image647x363.jpg">
-<meta property="fb:pages" content="23230437118">
-<meta property="og:image" content="https://akm-img-a-in.tosshub.com/sites/all/themes/itg/images/itg_image647x363.jpg">
+<meta property="fb:pages" content="1039776422892995">
 <meta name="theme-color" content="#C04A4A">
