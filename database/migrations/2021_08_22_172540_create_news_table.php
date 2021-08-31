@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration
                 $table->bigIncrements('id');
                 $table->string('title', 250);
                 $table->integer('category_id');
-                $table->text('content')->nullable();
+                $table->longtext('content')->nullable();
                 $table->string('describe', 500)->nullable();
                 $table->string('url', 300)->nullable();
                 $table->string('from_url', 500)->nullable();
