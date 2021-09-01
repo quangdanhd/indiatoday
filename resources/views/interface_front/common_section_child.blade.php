@@ -1,5 +1,5 @@
 @if(isset($value[0]))
-    <div class="col-md-4 col-sm-4 col-xs-12 mt-50" data-tb-region="HomeMovies">
+    <div class="col-md-4 col-sm-4 col-xs-12 mt-50">
         <div class="widget-help-text">Section Card</div>
         <div class="itg-widget">
             <div class="droppable ">

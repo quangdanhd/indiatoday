@@ -41,65 +41,16 @@ class HomeController extends ControllerUsers
             $top_db = $top_db->select('id', 'url', 'title')->whereNotIn('id', $newest_id)->take($take)->get();
             $home_data['top'] = $top_db;
             // OTHER
-            $category_name = [
-                // 6 items
-                [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                ],
-                // 1 items (*hidden)
-                [
-                    7,
-                ],
-                // 3 items
-                [
-                    8,
-                    9,
-                    10,
-                ],
-                // 6 items
-                [
-                    11,
-                    12,
-                    13,
-                    11,
-                    12,
-                    13,
-                ]
-            ];
-            $category = [];
             $others_data = [];
-            foreach ($category_name as $key => $value) {
-                foreach ($value as $k_2 => $val_2) {
-                    $category_id = $val_2;
-                    $category[] = $category_id;
-                    $others_data[$key][$category_id] = [];
-                }
-            }
-            $others_db = DB::table('news')->select('id', 'category_id', 'name', 'link', 'url', 'title', 'image')->leftJoin('news_category', 'category_id', 'type')->where('new_of_category', 1)->where('publish', 1)->whereIn('category_id', $category)->orderBy('id', 'desc')->get();
-            $arr_0 = array_keys($others_data[0]);
-            $arr_1 = array_keys($others_data[1]);
-            $arr_2 = array_keys($others_data[2]);
-            $arr_3 = array_keys($others_data[3]);
+            $others_db = DB::table('news')->select('id', 'category_id', 'name', 'link', 'url', 'title', 'image')->leftJoin('news_category', 'category_id', 'type')->where('new_of_category', 1)->where('publish', 1)->whereBetween('category_id', [1, 12])->orderBy('id', 'desc')->get();
             foreach ($others_db as $key => $value) {
                 $arr = (array)$value;
-                if (in_array($arr['category_id'], $arr_0)) {
-                    $others_data[0][$arr['category_id']][] = $arr;
+                if (!isset($others_data[$arr['category_id']])) {
+                    $others_data[$arr['category_id']] = [];
                 }
-                if (in_array($arr['category_id'], $arr_1)) {
-                    $others_data[1][$arr['category_id']][] = $arr;
-                }
-                if (in_array($arr['category_id'], $arr_2)) {
-                    $others_data[2][$arr['category_id']][] = $arr;
-                }
-                if (in_array($arr['category_id'], $arr_3)) {
-                    $others_data[3][$arr['category_id']][] = $arr;
-                }
+                $others_data[$arr['category_id']][] = $arr;
             }
+            ksort($others_data);
             $home_data['others'] = $others_data;
             Cache::put($cache_key, $home_data);
             $home_cached = Cache::get($cache_key);
