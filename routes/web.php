@@ -42,7 +42,8 @@ Route::group(['namespace' => 'Admin'], function () {
 });
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-
+// Feed
+Route::get('feed', [App\Http\Controllers\RssFeedController::class, 'feed']);
 
 // Category
 Route::get('/category/{url}', [App\Http\Controllers\HomeController::class, 'category']);
