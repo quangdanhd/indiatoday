@@ -35,7 +35,9 @@ class NewsController extends Controller
             'new_of_category',
         ];
         // default value
-        $default_value = [];
+        $default_value = [
+            'publish' => true,
+        ];
         // label
         $label = [];
         // form
@@ -190,6 +192,11 @@ class NewsController extends Controller
         $this->this_image($requestData);
         $return = reports_form_update($this->data_config(), $requestData);
         return $return;
+    }
+
+    public function destroy($id)
+    {
+        return reports_form_destroy($id, $this->data_config());
     }
 
     public function this_validate($id)

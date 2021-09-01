@@ -63,4 +63,9 @@ class news extends Model implements Authenticatable
     {
         return $this->orderBy('views', 'desc');
     }
+
+    public function dataFormDestroy($id)
+    {
+        $this->destroy($id);
+    }
 }

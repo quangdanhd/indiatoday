@@ -152,9 +152,9 @@
                             </a>
                         </td>
                         <td class="td-action">
-                            <!--<span @click="destroyItem(item[obj['primaryKey']])" title="Xóa" class="text-muted cursor-pointer">-->
-                            <!--<i class="far fa-trash-alt"></i>-->
-                            <!--</span>-->
+                            <span @click="destroyItem(item[obj['primaryKey']])" title="Xóa" class="text-danger cursor-pointer">
+                                <i class="far fa-trash-alt"></i>
+                            </span>
                         </td>
                     </tr>
                     </tbody>

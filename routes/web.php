@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('/admin', [HomeController::class, 'index'])->name('home');
     // News
     Route::resource('admin-news', '\App\Http\Controllers\Admin\NewsController', [
-        'only' => ['index', 'create', 'store', 'edit', 'update']
+        'only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']
     ]);
     // User
     //Route::resource('users', '\App\Http\Controllers\UserController', [
