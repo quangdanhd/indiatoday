@@ -90,8 +90,15 @@ nohup.out
 /.vagrant
 #Laravel Specific files
 /public/.htaccess
-/storage
 storage/*.key
 /public/images/news
 /public/images/news_237x133
 /public/images/news_370x208
+composer.lock
+package-lock.json
+storage/framework/cache/data/*
+!storage/framework/cache/data/text.txt
+storage/framework/sessions/*
+!storage/framework/sessions/text.txt
+storage/framework/views/*
+!storage/framework/views/text.txt
